@@ -68,18 +68,20 @@ Design a system that can:
 
 A **parametric, AI-driven income protection system** that automatically compensates workers when external disruptions reduce earning potential.
 
+To ensure reliable, real-time validation of worker activity and location, the system uses a lightweight mobile application that enables controlled background data collection and multi-signal verification, which is not consistently achievable through web-based environments.
+
 ### Core Pipeline
 
 1. **Disruption Detection**
-2. **Severity Estimation**
-3. **Loss Prediction**
-4. **Automated Payout Execution**
+2. **Fraud Detection**
+3. **Severity Estimation**
+4. **Loss Prediction**
+5. **Automated Payout Execution**
 
 ### Key Characteristics
 
 - **Parametric** — Triggered by external data
 - **Personalized** — Worker-specific pricing
-- **Real-Time** — No delays or claims
 - **Fraud-Resilient** — Multi-layer validation
 
 ---
@@ -92,7 +94,6 @@ Triggered when thresholds are exceeded:
 - Rainfall
 - AQI
 - Store downtime
-- Demand drop
 
 ---
 
@@ -115,7 +116,7 @@ Worker must:
 
 ### Step 4: Hybrid Payout
 
-` Payout = min(Predicted Loss × Coverage, Baseline − Actual) `
+` Payout = min(Predicted Loss × Coverage, Baseline Income − Actual Income) `
 
 ---
 
@@ -186,16 +187,20 @@ Based on:
 ### Risk Score
 
 `Risk =
-0.4 × Location +
-0.2 × Temporal +
-0.2 × Exposure +
+0.4 × Location Risk +
+0.2 × Temporal Risk +
+0.2 × Exposure Risk +
 0.2 × Store Reliability`
 
+* **Location Risk:** Represents how frequently a worker’s service zone experiences disruptions.
+* **Temporal Risk:** Captures time-based patterns in disruptions, such as seasonal weather.
+* **Exposure Risk:** Indicates how long a worker is active relative to total possible working time.
+* **Store Reliability** Measures how consistently the assigned dark store operates without interruptions.
 ---
 
 ### Expected Loss
 
-` Expected Loss = Baseline × Risk Score `
+` Expected Loss = Baseline Income × Risk Score `
 
 ---
 
@@ -203,6 +208,7 @@ Based on:
 
 ` Premium = Expected Loss × (1 + Margin) `
 
+* **Margin:** An additional percentage added on top of expected loss to ensure system sustainability.
 
 ---
 
@@ -246,8 +252,7 @@ Detects abnormal patterns:
 
 ### 4. Trust Score
 
-` Final Payout = Base × Trust Score `
-
+` Final Payout = Base Payout × Trust Score `
 
 ---
 
