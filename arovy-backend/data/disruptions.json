@@ -1,0 +1,527 @@
+[
+  {
+    "id": "15a115fd-e48a-4855-9922-afc48984dd5f",
+    "storeId": "DS-CHN-01",
+    "storeName": "Blinkit T. Nagar",
+    "zone": "T. Nagar",
+    "city": "Chennai",
+    "type": "heavy_rainfall",
+    "params": {
+      "rainfall_mm": 35,
+      "aqi": 0,
+      "temperature": 28,
+      "downtime_minutes": 120,
+      "scope": "localized"
+    },
+    "severity": 0.4,
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "durationHours": 1,
+    "startMinutes": 600,
+    "endMinutes": 660,
+    "affectedTotal": 10,
+    "affectedActive": 8,
+    "affectedWorkerIds": [
+      "WK-001",
+      "WK-002",
+      "WK-003",
+      "WK-004",
+      "WK-005",
+      "WK-006",
+      "WK-007",
+      "WK-008",
+      "WK-009",
+      "WK-010"
+    ],
+    "status": "completed",
+    "createdAt": "2026-03-30T14:19:06.912Z",
+    "activatedAt": "2026-03-30T14:19:49.389Z",
+    "endedAt": "2026-03-30T14:20:34.463Z",
+    "validationResults": [
+      {
+        "workerId": "WK-001",
+        "workerName": "Revathi J",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "limited",
+        "trustType": "low",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": true,
+          "participationScore": 0.47
+        },
+        "fraud": {
+          "flags": [
+            "GPS anomaly detected"
+          ],
+          "verdict": "blocked",
+          "trustScore": 0.52
+        },
+        "payoutCalculation": {
+          "hourlyRate": 33,
+          "preIncome": 33,
+          "duringIncome": 19.8,
+          "postIncome": 231,
+          "actualIncome": 283.8,
+          "dailyBaseline": 297,
+          "actualLoss": 13.2,
+          "severity": 0.4,
+          "predictedLoss": 118.8,
+          "planCoverage": 0.6,
+          "adjustedCoverage": 0.291,
+          "eligibilityMult": 0.6,
+          "effectiveCoverage": 0.175,
+          "predictedPayout": 20.79,
+          "hybridCap": 13.2,
+          "basePayout": 13.2,
+          "trustScore": 0.52,
+          "finalPayout": 0
+        },
+        "outcome": {
+          "payoutTriggered": false,
+          "payoutAmount": 0,
+          "payoutStatus": "blocked",
+          "notificationMessage": "Activity could not be verified for the heavy rainfall disruption in T. Nagar."
+        }
+      },
+      {
+        "workerId": "WK-002",
+        "workerName": "Selvam G",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "partial",
+        "trustType": "good",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.86
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.87
+        },
+        "payoutCalculation": {
+          "hourlyRate": 37.11,
+          "preIncome": 37.11,
+          "duringIncome": 22.27,
+          "postIncome": 259.78,
+          "actualIncome": 319.16,
+          "dailyBaseline": 334,
+          "actualLoss": 14.84,
+          "severity": 0.4,
+          "predictedLoss": 133.6,
+          "planCoverage": 0.8,
+          "adjustedCoverage": 0.644,
+          "eligibilityMult": 0.8,
+          "effectiveCoverage": 0.515,
+          "predictedPayout": 68.8,
+          "hybridCap": 14.84,
+          "basePayout": 14.84,
+          "trustScore": 0.87,
+          "finalPayout": 12.91
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 12.91,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹12.91 credited to your UPI."
+        }
+      },
+      {
+        "workerId": "WK-003",
+        "workerName": "Arun D",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "limited",
+        "trustType": "good",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.9
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.9
+        },
+        "payoutCalculation": {
+          "hourlyRate": 42.89,
+          "preIncome": 42.89,
+          "duringIncome": 25.73,
+          "postIncome": 300.22,
+          "actualIncome": 368.84,
+          "dailyBaseline": 386,
+          "actualLoss": 17.16,
+          "severity": 0.4,
+          "predictedLoss": 154.4,
+          "planCoverage": 0.8,
+          "adjustedCoverage": 0.666,
+          "eligibilityMult": 0.6,
+          "effectiveCoverage": 0.4,
+          "predictedPayout": 61.76,
+          "hybridCap": 17.16,
+          "basePayout": 17.16,
+          "trustScore": 0.9,
+          "finalPayout": 15.44
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 15.44,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹15.44 credited to your UPI."
+        }
+      },
+      {
+        "workerId": "WK-004",
+        "workerName": "Vikram N",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "low",
+        "validation": {
+          "sessionActive": false,
+          "locationInZone": true,
+          "preDisruptionConfirmed": false,
+          "gpsAnomaly": true,
+          "participationScore": 0.34
+        },
+        "fraud": {
+          "flags": [
+            "GPS anomaly detected",
+            "Inactive before disruption",
+            "Session inactive",
+            "Low participation 0.34"
+          ],
+          "verdict": "ineligible",
+          "trustScore": 0.38
+        },
+        "payoutCalculation": {
+          "hourlyRate": 40.56,
+          "preIncome": 40.56,
+          "duringIncome": 24.33,
+          "postIncome": 283.89,
+          "actualIncome": 348.78,
+          "dailyBaseline": 365,
+          "actualLoss": 16.22,
+          "severity": 0.4,
+          "predictedLoss": 146,
+          "planCoverage": 0.6,
+          "adjustedCoverage": 0.211,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.211,
+          "predictedPayout": 30.81,
+          "hybridCap": 16.22,
+          "basePayout": 16.22,
+          "trustScore": 0.38,
+          "finalPayout": 0
+        },
+        "outcome": {
+          "payoutTriggered": false,
+          "payoutAmount": 0,
+          "payoutStatus": "not_applicable",
+          "notificationMessage": "Not currently eligible for coverage."
+        }
+      },
+      {
+        "workerId": "WK-005",
+        "workerName": "Bhavana H",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "moderate",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.7
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.75
+        },
+        "payoutCalculation": {
+          "hourlyRate": 45.44,
+          "preIncome": 45.44,
+          "duringIncome": 27.27,
+          "postIncome": 318.11,
+          "actualIncome": 390.82,
+          "dailyBaseline": 409,
+          "actualLoss": 18.18,
+          "severity": 0.4,
+          "predictedLoss": 163.6,
+          "planCoverage": 0.8,
+          "adjustedCoverage": 0.558,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.558,
+          "predictedPayout": 91.29,
+          "hybridCap": 18.18,
+          "basePayout": 18.18,
+          "trustScore": 0.75,
+          "finalPayout": 13.63
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 13.63,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹13.63 credited to your UPI."
+        }
+      },
+      {
+        "workerId": "WK-006",
+        "workerName": "Bharathi F",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "moderate",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.61
+        },
+        "fraud": {
+          "flags": [
+            "High idle ratio 0.63"
+          ],
+          "verdict": "partial",
+          "trustScore": 0.65
+        },
+        "payoutCalculation": {
+          "hourlyRate": 28.56,
+          "preIncome": 28.56,
+          "duringIncome": 17.13,
+          "postIncome": 199.89,
+          "actualIncome": 245.58,
+          "dailyBaseline": 257,
+          "actualLoss": 11.42,
+          "severity": 0.4,
+          "predictedLoss": 102.8,
+          "planCoverage": 0.6,
+          "adjustedCoverage": 0.36,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.36,
+          "predictedPayout": 37.01,
+          "hybridCap": 11.42,
+          "basePayout": 11.42,
+          "trustScore": 0.65,
+          "finalPayout": 7.42
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 7.42,
+          "payoutStatus": "partial_approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹7.42 credited. Some signals flagged."
+        }
+      },
+      {
+        "workerId": "WK-007",
+        "workerName": "Anbu D",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "critical",
+        "validation": {
+          "sessionActive": false,
+          "locationInZone": true,
+          "preDisruptionConfirmed": false,
+          "gpsAnomaly": true,
+          "participationScore": 0.13
+        },
+        "fraud": {
+          "flags": [
+            "GPS anomaly detected",
+            "Inactive before disruption",
+            "Session inactive",
+            "Low participation 0.13"
+          ],
+          "verdict": "ineligible",
+          "trustScore": 0.2
+        },
+        "payoutCalculation": {
+          "hourlyRate": 29.44,
+          "preIncome": 29.44,
+          "duringIncome": 17.67,
+          "postIncome": 206.11,
+          "actualIncome": 253.22,
+          "dailyBaseline": 265,
+          "actualLoss": 11.78,
+          "severity": 0.4,
+          "predictedLoss": 106,
+          "planCoverage": 0.6,
+          "adjustedCoverage": 0.112,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.112,
+          "predictedPayout": 11.87,
+          "hybridCap": 11.78,
+          "basePayout": 11.78,
+          "trustScore": 0.2,
+          "finalPayout": 0
+        },
+        "outcome": {
+          "payoutTriggered": false,
+          "payoutAmount": 0,
+          "payoutStatus": "not_applicable",
+          "notificationMessage": "Not currently eligible for coverage."
+        }
+      },
+      {
+        "workerId": "WK-008",
+        "workerName": "Selvam K",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "good",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.77
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.83
+        },
+        "payoutCalculation": {
+          "hourlyRate": 29,
+          "preIncome": 29,
+          "duringIncome": 17.4,
+          "postIncome": 203,
+          "actualIncome": 249.4,
+          "dailyBaseline": 261,
+          "actualLoss": 11.6,
+          "severity": 0.4,
+          "predictedLoss": 104.4,
+          "planCoverage": 0.8,
+          "adjustedCoverage": 0.614,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.614,
+          "predictedPayout": 64.1,
+          "hybridCap": 11.6,
+          "basePayout": 11.6,
+          "trustScore": 0.83,
+          "finalPayout": 9.63
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 9.63,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹9.63 credited to your UPI."
+        }
+      },
+      {
+        "workerId": "WK-009",
+        "workerName": "Padma C",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "excellent",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.96
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.96
+        },
+        "payoutCalculation": {
+          "hourlyRate": 32.56,
+          "preIncome": 32.56,
+          "duringIncome": 19.53,
+          "postIncome": 227.89,
+          "actualIncome": 279.98,
+          "dailyBaseline": 293,
+          "actualLoss": 13.02,
+          "severity": 0.4,
+          "predictedLoss": 117.2,
+          "planCoverage": 0.8,
+          "adjustedCoverage": 0.719,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.719,
+          "predictedPayout": 84.27,
+          "hybridCap": 13.02,
+          "basePayout": 13.02,
+          "trustScore": 0.96,
+          "finalPayout": 12.5
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 12.5,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹12.50 credited to your UPI."
+        }
+      },
+      {
+        "workerId": "WK-010",
+        "workerName": "Fatima T",
+        "zone": "T. Nagar",
+        "storeId": "DS-CHN-01",
+        "eligibilityTier": "full",
+        "trustType": "excellent",
+        "validation": {
+          "sessionActive": true,
+          "locationInZone": true,
+          "preDisruptionConfirmed": true,
+          "gpsAnomaly": false,
+          "participationScore": 0.92
+        },
+        "fraud": {
+          "flags": [],
+          "verdict": "clean",
+          "trustScore": 0.93
+        },
+        "payoutCalculation": {
+          "hourlyRate": 36.22,
+          "preIncome": 36.22,
+          "duringIncome": 21.73,
+          "postIncome": 253.56,
+          "actualIncome": 311.51,
+          "dailyBaseline": 326,
+          "actualLoss": 14.49,
+          "severity": 0.4,
+          "predictedLoss": 130.4,
+          "planCoverage": 1,
+          "adjustedCoverage": 0.861,
+          "eligibilityMult": 1,
+          "effectiveCoverage": 0.861,
+          "predictedPayout": 112.27,
+          "hybridCap": 14.49,
+          "basePayout": 14.49,
+          "trustScore": 0.93,
+          "finalPayout": 13.48
+        },
+        "outcome": {
+          "payoutTriggered": true,
+          "payoutAmount": 13.48,
+          "payoutStatus": "approved",
+          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹13.48 credited to your UPI."
+        }
+      }
+    ],
+    "summary": {
+      "totalWorkers": 10,
+      "approved": 6,
+      "partial": 1,
+      "blocked": 1,
+      "ineligible": 2,
+      "totalDisbursed": 85.01,
+      "clusterRisk": 0.1,
+      "marketCrash": false
+    }
+  }
+]

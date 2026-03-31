@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-950: #05070C;
+  --ink-900: #090D16;
+  --ink-800: #0F1521;
+  --ink-700: #161E2E;
+  --ink-600: #1E2940;
+  --border:  rgba(255,255,255,0.07);
+  --border-hi: rgba(255,255,255,0.13);
+  --text-hi:  #EEF2FF;
+  --text-mid: rgba(238,242,255,0.55);
+  --text-low: rgba(238,242,255,0.28);
+  --sky:  #4F8EF7;
+  --jade: #23D18B;
+  --fire: #F5532D;
+  --sun:  #F5A623;
+  --iris: #8B7FED;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink-950);
+  color: var(--text-hi);
+  font-family: 'Instrument Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* Utility classes */
+.font-display { font-family: 'Cabinet Grotesk', sans-serif; }
+.font-mono    { font-family: 'IBM Plex Mono', monospace; }
+
+.card {
+  background: var(--ink-800);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.card-hover {
+  transition: border-color 0.2s, background 0.2s;
+}
+.card-hover:hover {
+  border-color: var(--border-hi);
+  background: var(--ink-700);
+}
+
+/* Gradient mesh backgrounds */
+.mesh-blue {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(79,142,247,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(139,127,237,0.06) 0%, transparent 60%),
+    var(--ink-800);
+}
+
+.mesh-green {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(35,209,139,0.08) 0%, transparent 60%),
+    var(--ink-800);
+}
+
+.mesh-fire {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(245,83,45,0.1) 0%, transparent 60%),
+    var(--ink-800);
+}
+
+/* Status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.badge-green  { background: rgba(35,209,139,0.12); color: #23D18B; border: 1px solid rgba(35,209,139,0.2); }
+.badge-red    { background: rgba(245,83,45,0.12);  color: #F5532D; border: 1px solid rgba(245,83,45,0.2); }
+.badge-amber  { background: rgba(245,166,35,0.12); color: #F5A623; border: 1px solid rgba(245,166,35,0.2); }
+.badge-blue   { background: rgba(79,142,247,0.12); color: #4F8EF7; border: 1px solid rgba(79,142,247,0.2); }
+.badge-gray   { background: rgba(255,255,255,0.06);color: rgba(238,242,255,0.45); border: 1px solid rgba(255,255,255,0.08); }
+.badge-iris   { background: rgba(139,127,237,0.12);color: #8B7FED; border: 1px solid rgba(139,127,237,0.2); }
+
+/* Animated entrance */
+.stagger-1 { animation: slideIn 0.35s ease 0.05s both; }
+.stagger-2 { animation: slideIn 0.35s ease 0.10s both; }
+.stagger-3 { animation: slideIn 0.35s ease 0.15s both; }
+.stagger-4 { animation: slideIn 0.35s ease 0.20s both; }
+.stagger-5 { animation: slideIn 0.35s ease 0.25s both; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Trust score ring */
+.trust-ring {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Table rows */
+.table-row {
+  display: grid;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.table-row:hover { background: rgba(255,255,255,0.025); }
+.table-row:last-child { border-bottom: none; }
