@@ -3,9 +3,9 @@
 
 const https = require('https')
 
-const KEY_ID         = process.env.RAZORPAY_KEY_ID     || ''
-const KEY_SECRET     = process.env.RAZORPAY_KEY_SECRET  || ''
-const ACCOUNT_NUMBER = process.env.RAZORPAY_ACCOUNT     || '2323230099999999'
+const KEY_ID         = "rzp_test_SZMDrki2Y0J1zi"
+const KEY_SECRET     = "x1p8ff5oGYZqrWBGozacFwXM"
+const ACCOUNT_NUMBER = 2323230052034072
 const BASE_AUTH      = Buffer.from(`${KEY_ID}:${KEY_SECRET}`).toString('base64')
 
 // ─── Reference ID: max 40 chars ──────────────────────────
