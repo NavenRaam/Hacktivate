@@ -1,24 +1,24 @@
 [
   {
-    "id": "15a115fd-e48a-4855-9922-afc48984dd5f",
+    "id": "0f972867-9e23-479b-adf5-79202e3c2c79",
     "storeId": "DS-CHN-01",
     "storeName": "Blinkit T. Nagar",
     "zone": "T. Nagar",
     "city": "Chennai",
     "type": "heavy_rainfall",
     "params": {
-      "rainfall_mm": 35,
+      "rainfall_mm": 55,
       "aqi": 0,
       "temperature": 28,
       "downtime_minutes": 120,
       "scope": "localized"
     },
-    "severity": 0.4,
+    "severity": 0.6,
     "startTime": "10:00",
-    "endTime": "11:00",
-    "durationHours": 1,
+    "endTime": "12:00",
+    "durationHours": 2,
     "startMinutes": 600,
-    "endMinutes": 660,
+    "endMinutes": 720,
     "affectedTotal": 10,
     "affectedActive": 8,
     "affectedWorkerIds": [
@@ -34,17 +34,18 @@
       "WK-010"
     ],
     "status": "completed",
-    "createdAt": "2026-03-30T14:19:06.912Z",
-    "activatedAt": "2026-03-30T14:19:49.389Z",
-    "endedAt": "2026-03-30T14:20:34.463Z",
+    "createdAt": "2026-04-04T15:26:55.228Z",
+    "activatedAt": "2026-04-04T15:27:02.909Z",
+    "endedAt": "2026-04-04T15:27:40.500Z",
     "validationResults": [
       {
-        "workerId": "WK-001",
+        "worker_id": "WK-001",
         "workerName": "Revathi J",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "limited",
         "trustType": "low",
+        "upi_id": "revathi881@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -53,46 +54,300 @@
           "participationScore": 0.47
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": false,
+              "actual": "Anomaly detected",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "47%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 47% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "22%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 22% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "limited",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has limited coverage tier based on 1 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "low (52%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is low with score 52% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 7,
+          "failed_count": 1,
+          "total_checks": 8,
           "flags": [
-            "GPS anomaly detected"
+            "GPS Signal Integrity"
           ],
           "verdict": "blocked",
-          "trustScore": 0.52
+          "verdict_explanation": "Critical validation failure — GPS Signal Integrity. Payout blocked to prevent fraudulent claim.",
+          "trustScore": 0.52,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": false,
+                "actual": "Anomaly detected",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "47%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 47% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "22%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 22% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "limited",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has limited coverage tier based on 1 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "low (52%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is low with score 52% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 33,
-          "preIncome": 33,
-          "duringIncome": 19.8,
-          "postIncome": 231,
-          "actualIncome": 283.8,
-          "dailyBaseline": 297,
-          "actualLoss": 13.2,
-          "severity": 0.4,
-          "predictedLoss": 118.8,
-          "planCoverage": 0.6,
-          "adjustedCoverage": 0.291,
-          "eligibilityMult": 0.6,
-          "effectiveCoverage": 0.175,
-          "predictedPayout": 20.79,
-          "hybridCap": 13.2,
-          "basePayout": 13.2,
-          "trustScore": 0.52,
-          "finalPayout": 0
+          "daily_baseline": 297,
+          "hourly_rate": 33,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 33,
+          "during_income": 26.4,
+          "post_income": 198,
+          "actual_income": 257.4,
+          "actual_loss": 39.6,
+          "severity": 0.6,
+          "predicted_loss": 178.2,
+          "plan_coverage": 0.6,
+          "alpha": 0.1,
+          "risk_score": 0.674,
+          "adjusted_coverage": 0.291,
+          "eligibility_tier": "limited",
+          "eligibility_mult": 0.6,
+          "effective_coverage": 0.175,
+          "predicted_payout": 31.18,
+          "hybrid_cap": 39.6,
+          "base_payout": 31.18,
+          "trust_score": 0.52,
+          "final_payout": 0,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 297,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹297 ÷ 9hr shift",
+              "value": 33,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹33) + during(2hr×₹33×0.4) + post(6hr×₹33)",
+              "value": 257.4,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹297 − ₹257.4",
+              "value": 39.6,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹297 × severity(0.6)",
+              "value": 178.2,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.6 × (1 − 0.1×0.674) × trust(0.52)",
+              "value": 0.291,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.291 × eligibility_mult(0.6)",
+              "value": 0.175,
+              "unit": "",
+              "note": "Eligibility tier: limited"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹178.2 × 0.175",
+              "value": 31.18,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹31.18, ₹39.6)",
+              "value": 31.18,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹31.18 × trust(0.52)",
+              "value": 16.21,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": false,
-          "payoutAmount": 0,
-          "payoutStatus": "blocked",
-          "notificationMessage": "Activity could not be verified for the heavy rainfall disruption in T. Nagar."
-        }
+          "payout_triggered": false,
+          "payout_amount": 0,
+          "payout_status": "blocked",
+          "notification_message": "Activity signals could not be verified for the heavy rainfall disruption in T. Nagar. Payout blocked."
+        },
+        "razorpay": null
       },
       {
-        "workerId": "WK-002",
+        "worker_id": "WK-002",
         "workerName": "Selvam G",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "partial",
         "trustType": "good",
+        "upi_id": "selvam171@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -101,44 +356,329 @@
           "participationScore": 0.86
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "86%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 86% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "5%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 5% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "partial",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has partial coverage tier based on 3 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "good (87%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is good with score 87% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.87
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.87,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "86%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 86% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "5%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 5% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "partial",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has partial coverage tier based on 3 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "good (87%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is good with score 87% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 37.11,
-          "preIncome": 37.11,
-          "duringIncome": 22.27,
-          "postIncome": 259.78,
-          "actualIncome": 319.16,
-          "dailyBaseline": 334,
-          "actualLoss": 14.84,
-          "severity": 0.4,
-          "predictedLoss": 133.6,
-          "planCoverage": 0.8,
-          "adjustedCoverage": 0.644,
-          "eligibilityMult": 0.8,
-          "effectiveCoverage": 0.515,
-          "predictedPayout": 68.8,
-          "hybridCap": 14.84,
-          "basePayout": 14.84,
-          "trustScore": 0.87,
-          "finalPayout": 12.91
+          "daily_baseline": 334,
+          "hourly_rate": 37.11,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 37.11,
+          "during_income": 29.69,
+          "post_income": 222.66,
+          "actual_income": 289.46,
+          "actual_loss": 44.54,
+          "severity": 0.6,
+          "predicted_loss": 200.4,
+          "plan_coverage": 0.8,
+          "alpha": 0.1,
+          "risk_score": 0.746,
+          "adjusted_coverage": 0.644,
+          "eligibility_tier": "partial",
+          "eligibility_mult": 0.8,
+          "effective_coverage": 0.515,
+          "predicted_payout": 103.21,
+          "hybrid_cap": 44.54,
+          "base_payout": 44.54,
+          "trust_score": 0.87,
+          "final_payout": 38.75,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 334,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹334 ÷ 9hr shift",
+              "value": 37.11,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹37.11) + during(2hr×₹37.11×0.4) + post(6hr×₹37.11)",
+              "value": 289.46,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹334 − ₹289.46",
+              "value": 44.54,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹334 × severity(0.6)",
+              "value": 200.4,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.8 × (1 − 0.1×0.746) × trust(0.87)",
+              "value": 0.644,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.644 × eligibility_mult(0.8)",
+              "value": 0.515,
+              "unit": "",
+              "note": "Eligibility tier: partial"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹200.4 × 0.515",
+              "value": 103.21,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹103.21, ₹44.54)",
+              "value": 44.54,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹44.54 × trust(0.87)",
+              "value": 38.75,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 12.91,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹12.91 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 38.75,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹38.75 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-002",
+          "worker_name": "Selvam G",
+          "upi_id": "selvam171@okicici",
+          "amount_rupees": 38.75,
+          "amount_paise": 3875,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPfkWxbyu3VZ",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPgJCSjs5YBT",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSsmnmFYGKBY0",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSsmnmFYGKBY0",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:18.162Z"
         }
       },
       {
-        "workerId": "WK-003",
+        "worker_id": "WK-003",
         "workerName": "Arun D",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "limited",
         "trustType": "good",
+        "upi_id": "arun350@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -147,44 +687,329 @@
           "participationScore": 0.9
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "90%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 90% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "8%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 8% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "limited",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has limited coverage tier based on 2 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "good (90%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is good with score 90% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.9
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.9,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "90%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 90% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "8%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 8% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "limited",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has limited coverage tier based on 2 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "good (90%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is good with score 90% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 42.89,
-          "preIncome": 42.89,
-          "duringIncome": 25.73,
-          "postIncome": 300.22,
-          "actualIncome": 368.84,
-          "dailyBaseline": 386,
-          "actualLoss": 17.16,
-          "severity": 0.4,
-          "predictedLoss": 154.4,
-          "planCoverage": 0.8,
-          "adjustedCoverage": 0.666,
-          "eligibilityMult": 0.6,
-          "effectiveCoverage": 0.4,
-          "predictedPayout": 61.76,
-          "hybridCap": 17.16,
-          "basePayout": 17.16,
-          "trustScore": 0.9,
-          "finalPayout": 15.44
+          "daily_baseline": 386,
+          "hourly_rate": 42.89,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 42.89,
+          "during_income": 34.31,
+          "post_income": 257.34,
+          "actual_income": 334.54,
+          "actual_loss": 51.46,
+          "severity": 0.6,
+          "predicted_loss": 231.6,
+          "plan_coverage": 0.8,
+          "alpha": 0.1,
+          "risk_score": 0.744,
+          "adjusted_coverage": 0.666,
+          "eligibility_tier": "limited",
+          "eligibility_mult": 0.6,
+          "effective_coverage": 0.4,
+          "predicted_payout": 92.64,
+          "hybrid_cap": 51.46,
+          "base_payout": 51.46,
+          "trust_score": 0.9,
+          "final_payout": 46.31,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 386,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹386 ÷ 9hr shift",
+              "value": 42.89,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹42.89) + during(2hr×₹42.89×0.4) + post(6hr×₹42.89)",
+              "value": 334.54,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹386 − ₹334.54",
+              "value": 51.46,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹386 × severity(0.6)",
+              "value": 231.6,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.8 × (1 − 0.1×0.744) × trust(0.9)",
+              "value": 0.666,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.666 × eligibility_mult(0.6)",
+              "value": 0.4,
+              "unit": "",
+              "note": "Eligibility tier: limited"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹231.6 × 0.4",
+              "value": 92.64,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹92.64, ₹51.46)",
+              "value": 51.46,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹51.46 × trust(0.9)",
+              "value": 46.31,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 15.44,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹15.44 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 46.31,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹46.31 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-003",
+          "worker_name": "Arun D",
+          "upi_id": "arun350@okicici",
+          "amount_rupees": 46.31,
+          "amount_paise": 4631,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPikLTn6nKPF",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPjQCB1yYkpV",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSspok5bNhz1O",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSspok5bNhz1O",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:21.588Z"
         }
       },
       {
-        "workerId": "WK-004",
+        "worker_id": "WK-004",
         "workerName": "Vikram N",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "low",
+        "upi_id": "vikram371@okicici",
         "validation": {
           "sessionActive": false,
           "locationInZone": true,
@@ -193,49 +1018,303 @@
           "participationScore": 0.34
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": false,
+              "actual": "inactive",
+              "threshold": "active",
+              "explanation": "Worker session was not active — not working during this disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": false,
+              "actual": "Not active pre-disruption",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker only logged in after disruption started — opportunistic login detected"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": false,
+              "actual": "Anomaly detected",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": false,
+              "actual": "34%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 34% is below 40% minimum — insufficient work activity"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "35%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 35% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 20 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "low (38%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is low with score 38% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 4,
+          "failed_count": 4,
+          "total_checks": 8,
           "flags": [
-            "GPS anomaly detected",
-            "Inactive before disruption",
-            "Session inactive",
-            "Low participation 0.34"
+            "Session Active",
+            "Active Before Disruption",
+            "GPS Signal Integrity",
+            "Participation Score"
           ],
           "verdict": "ineligible",
-          "trustScore": 0.38
+          "verdict_explanation": "Worker does not meet basic eligibility requirements. No payout issued.",
+          "trustScore": 0.38,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": false,
+                "actual": "inactive",
+                "threshold": "active",
+                "explanation": "Worker session was not active — not working during this disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": false,
+                "actual": "Anomaly detected",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": false,
+                "actual": "Not active pre-disruption",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker only logged in after disruption started — opportunistic login detected"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": false,
+                "actual": "34%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 34% is below 40% minimum — insufficient work activity"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "35%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 35% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 20 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "low (38%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is low with score 38% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 40.56,
-          "preIncome": 40.56,
-          "duringIncome": 24.33,
-          "postIncome": 283.89,
-          "actualIncome": 348.78,
-          "dailyBaseline": 365,
-          "actualLoss": 16.22,
-          "severity": 0.4,
-          "predictedLoss": 146,
-          "planCoverage": 0.6,
-          "adjustedCoverage": 0.211,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.211,
-          "predictedPayout": 30.81,
-          "hybridCap": 16.22,
-          "basePayout": 16.22,
-          "trustScore": 0.38,
-          "finalPayout": 0
+          "daily_baseline": 365,
+          "hourly_rate": 40.56,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 40.56,
+          "during_income": 32.45,
+          "post_income": 243.36,
+          "actual_income": 316.37,
+          "actual_loss": 48.63,
+          "severity": 0.6,
+          "predicted_loss": 219,
+          "plan_coverage": 0.6,
+          "alpha": 0.1,
+          "risk_score": 0.724,
+          "adjusted_coverage": 0.211,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.211,
+          "predicted_payout": 46.21,
+          "hybrid_cap": 48.63,
+          "base_payout": 46.21,
+          "trust_score": 0.38,
+          "final_payout": 0,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 365,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹365 ÷ 9hr shift",
+              "value": 40.56,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹40.56) + during(2hr×₹40.56×0.4) + post(6hr×₹40.56)",
+              "value": 316.37,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹365 − ₹316.37",
+              "value": 48.63,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹365 × severity(0.6)",
+              "value": 219,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.6 × (1 − 0.1×0.724) × trust(0.38)",
+              "value": 0.211,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.211 × eligibility_mult(1)",
+              "value": 0.211,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹219 × 0.211",
+              "value": 46.21,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹46.21, ₹48.63)",
+              "value": 46.21,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹46.21 × trust(0.38)",
+              "value": 17.56,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": false,
-          "payoutAmount": 0,
-          "payoutStatus": "not_applicable",
-          "notificationMessage": "Not currently eligible for coverage."
-        }
+          "payout_triggered": false,
+          "payout_amount": 0,
+          "payout_status": "not_applicable",
+          "notification_message": "Not currently eligible for coverage. Check your plan details."
+        },
+        "razorpay": null
       },
       {
-        "workerId": "WK-005",
+        "worker_id": "WK-005",
         "workerName": "Bhavana H",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "moderate",
+        "upi_id": "bhavana490@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -244,44 +1323,329 @@
           "participationScore": 0.7
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "70%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 70% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "13%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 13% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 17 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "moderate (75%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is moderate with score 75% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.75
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.75,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "70%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 70% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "13%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 13% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 17 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "moderate (75%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is moderate with score 75% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 45.44,
-          "preIncome": 45.44,
-          "duringIncome": 27.27,
-          "postIncome": 318.11,
-          "actualIncome": 390.82,
-          "dailyBaseline": 409,
-          "actualLoss": 18.18,
-          "severity": 0.4,
-          "predictedLoss": 163.6,
-          "planCoverage": 0.8,
-          "adjustedCoverage": 0.558,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.558,
-          "predictedPayout": 91.29,
-          "hybridCap": 18.18,
-          "basePayout": 18.18,
-          "trustScore": 0.75,
-          "finalPayout": 13.63
+          "daily_baseline": 409,
+          "hourly_rate": 45.44,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 45.44,
+          "during_income": 36.35,
+          "post_income": 272.64,
+          "actual_income": 354.43,
+          "actual_loss": 54.57,
+          "severity": 0.6,
+          "predicted_loss": 245.4,
+          "plan_coverage": 0.8,
+          "alpha": 0.1,
+          "risk_score": 0.696,
+          "adjusted_coverage": 0.558,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.558,
+          "predicted_payout": 136.93,
+          "hybrid_cap": 54.57,
+          "base_payout": 54.57,
+          "trust_score": 0.75,
+          "final_payout": 40.93,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 409,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹409 ÷ 9hr shift",
+              "value": 45.44,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹45.44) + during(2hr×₹45.44×0.4) + post(6hr×₹45.44)",
+              "value": 354.43,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹409 − ₹354.43",
+              "value": 54.57,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹409 × severity(0.6)",
+              "value": 245.4,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.8 × (1 − 0.1×0.696) × trust(0.75)",
+              "value": 0.558,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.558 × eligibility_mult(1)",
+              "value": 0.558,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹245.4 × 0.558",
+              "value": 136.93,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹136.93, ₹54.57)",
+              "value": 54.57,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹54.57 × trust(0.75)",
+              "value": 40.93,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 13.63,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹13.63 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 40.93,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹40.93 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-005",
+          "worker_name": "Bhavana H",
+          "upi_id": "bhavana490@okicici",
+          "amount_rupees": 40.93,
+          "amount_paise": 4093,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPm6wUER2eow",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPmeOtVRQ9S1",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSstjKtU2Ohl0",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSstjKtU2Ohl0",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:24.170Z"
         }
       },
       {
-        "workerId": "WK-006",
+        "worker_id": "WK-006",
         "workerName": "Bharathi F",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "moderate",
+        "upi_id": "bharathi880@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -290,46 +1654,331 @@
           "participationScore": 0.61
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "61%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 61% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": false,
+              "actual": "63%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 63% exceeds 50% — worker appears to have been inactive"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 8 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "moderate (65%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is moderate with score 65% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 7,
+          "failed_count": 1,
+          "total_checks": 8,
           "flags": [
-            "High idle ratio 0.63"
+            "Idle Time Ratio"
           ],
           "verdict": "partial",
-          "trustScore": 0.65
+          "verdict_explanation": "7/8 checks passed. 1 minor issue(s) detected — payout approved at reduced amount.",
+          "trustScore": 0.65,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "61%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 61% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": false,
+                "actual": "63%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 63% exceeds 50% — worker appears to have been inactive"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 8 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "moderate (65%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is moderate with score 65% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 28.56,
-          "preIncome": 28.56,
-          "duringIncome": 17.13,
-          "postIncome": 199.89,
-          "actualIncome": 245.58,
-          "dailyBaseline": 257,
-          "actualLoss": 11.42,
-          "severity": 0.4,
-          "predictedLoss": 102.8,
-          "planCoverage": 0.6,
-          "adjustedCoverage": 0.36,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.36,
-          "predictedPayout": 37.01,
-          "hybridCap": 11.42,
-          "basePayout": 11.42,
-          "trustScore": 0.65,
-          "finalPayout": 7.42
+          "daily_baseline": 257,
+          "hourly_rate": 28.56,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 28.56,
+          "during_income": 22.85,
+          "post_income": 171.36,
+          "actual_income": 222.77,
+          "actual_loss": 34.23,
+          "severity": 0.6,
+          "predicted_loss": 154.2,
+          "plan_coverage": 0.6,
+          "alpha": 0.1,
+          "risk_score": 0.774,
+          "adjusted_coverage": 0.36,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.36,
+          "predicted_payout": 55.51,
+          "hybrid_cap": 34.23,
+          "base_payout": 34.23,
+          "trust_score": 0.65,
+          "final_payout": 22.25,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 257,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹257 ÷ 9hr shift",
+              "value": 28.56,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹28.56) + during(2hr×₹28.56×0.4) + post(6hr×₹28.56)",
+              "value": 222.77,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹257 − ₹222.77",
+              "value": 34.23,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹257 × severity(0.6)",
+              "value": 154.2,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.6 × (1 − 0.1×0.774) × trust(0.65)",
+              "value": 0.36,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.36 × eligibility_mult(1)",
+              "value": 0.36,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹154.2 × 0.36",
+              "value": 55.51,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹55.51, ₹34.23)",
+              "value": 34.23,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹34.23 × trust(0.65)",
+              "value": 22.25,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 7.42,
-          "payoutStatus": "partial_approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹7.42 credited. Some signals flagged."
+          "payout_triggered": true,
+          "payout_amount": 22.25,
+          "payout_status": "partial_approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹22.25 credited. Some signals flagged."
+        },
+        "razorpay": {
+          "worker_id": "WK-006",
+          "worker_name": "Bharathi F",
+          "upi_id": "bharathi880@okicici",
+          "amount_rupees": 22.25,
+          "amount_paise": 2225,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPpLk55e8wP7",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPq6q0A7NO1D",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSswxUN5j99sb",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSswxUN5j99sb",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:28.014Z"
         }
       },
       {
-        "workerId": "WK-007",
+        "worker_id": "WK-007",
         "workerName": "Anbu D",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "critical",
+        "upi_id": "anbu346@okicici",
         "validation": {
           "sessionActive": false,
           "locationInZone": true,
@@ -338,49 +1987,304 @@
           "participationScore": 0.13
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": false,
+              "actual": "inactive",
+              "threshold": "active",
+              "explanation": "Worker session was not active — not working during this disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": false,
+              "actual": "Not active pre-disruption",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker only logged in after disruption started — opportunistic login detected"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": false,
+              "actual": "Anomaly detected",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": false,
+              "actual": "13%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 13% is below 40% minimum — insufficient work activity"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "23%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 23% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 20 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": false,
+              "actual": "critical (20%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is critical (20%) — multiple past anomalies detected, payout blocked"
+            }
+          ],
+          "passed_count": 3,
+          "failed_count": 5,
+          "total_checks": 8,
           "flags": [
-            "GPS anomaly detected",
-            "Inactive before disruption",
-            "Session inactive",
-            "Low participation 0.13"
+            "Session Active",
+            "Active Before Disruption",
+            "GPS Signal Integrity",
+            "Participation Score",
+            "Trust Profile"
           ],
           "verdict": "ineligible",
-          "trustScore": 0.2
+          "verdict_explanation": "Worker does not meet basic eligibility requirements. No payout issued.",
+          "trustScore": 0.2,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": false,
+                "actual": "inactive",
+                "threshold": "active",
+                "explanation": "Worker session was not active — not working during this disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": false,
+                "actual": "Anomaly detected",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS anomaly detected — possible spoofing, teleportation events, or impossible movement speed"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": false,
+                "actual": "Not active pre-disruption",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker only logged in after disruption started — opportunistic login detected"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": false,
+                "actual": "13%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 13% is below 40% minimum — insufficient work activity"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "23%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 23% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 20 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": false,
+                "actual": "critical (20%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is critical (20%) — multiple past anomalies detected, payout blocked"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 29.44,
-          "preIncome": 29.44,
-          "duringIncome": 17.67,
-          "postIncome": 206.11,
-          "actualIncome": 253.22,
-          "dailyBaseline": 265,
-          "actualLoss": 11.78,
-          "severity": 0.4,
-          "predictedLoss": 106,
-          "planCoverage": 0.6,
-          "adjustedCoverage": 0.112,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.112,
-          "predictedPayout": 11.87,
-          "hybridCap": 11.78,
-          "basePayout": 11.78,
-          "trustScore": 0.2,
-          "finalPayout": 0
+          "daily_baseline": 265,
+          "hourly_rate": 29.44,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 29.44,
+          "during_income": 23.55,
+          "post_income": 176.64,
+          "actual_income": 229.63,
+          "actual_loss": 35.37,
+          "severity": 0.6,
+          "predicted_loss": 159,
+          "plan_coverage": 0.6,
+          "alpha": 0.1,
+          "risk_score": 0.67,
+          "adjusted_coverage": 0.112,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.112,
+          "predicted_payout": 17.81,
+          "hybrid_cap": 35.37,
+          "base_payout": 17.81,
+          "trust_score": 0.2,
+          "final_payout": 0,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 265,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹265 ÷ 9hr shift",
+              "value": 29.44,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹29.44) + during(2hr×₹29.44×0.4) + post(6hr×₹29.44)",
+              "value": 229.63,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹265 − ₹229.63",
+              "value": 35.37,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹265 × severity(0.6)",
+              "value": 159,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.6 × (1 − 0.1×0.67) × trust(0.2)",
+              "value": 0.112,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.112 × eligibility_mult(1)",
+              "value": 0.112,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹159 × 0.112",
+              "value": 17.81,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹17.81, ₹35.37)",
+              "value": 17.81,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹17.81 × trust(0.2)",
+              "value": 3.56,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": false,
-          "payoutAmount": 0,
-          "payoutStatus": "not_applicable",
-          "notificationMessage": "Not currently eligible for coverage."
-        }
+          "payout_triggered": false,
+          "payout_amount": 0,
+          "payout_status": "not_applicable",
+          "notification_message": "Not currently eligible for coverage. Check your plan details."
+        },
+        "razorpay": null
       },
       {
-        "workerId": "WK-008",
+        "worker_id": "WK-008",
         "workerName": "Selvam K",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "good",
+        "upi_id": "selvam508@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -389,44 +2293,329 @@
           "participationScore": 0.77
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "77%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 77% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "9%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 9% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 15 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "good (83%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is good with score 83% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.83
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.83,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "77%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 77% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "9%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 9% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 15 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "good (83%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is good with score 83% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 29,
-          "preIncome": 29,
-          "duringIncome": 17.4,
-          "postIncome": 203,
-          "actualIncome": 249.4,
-          "dailyBaseline": 261,
-          "actualLoss": 11.6,
-          "severity": 0.4,
-          "predictedLoss": 104.4,
-          "planCoverage": 0.8,
-          "adjustedCoverage": 0.614,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.614,
-          "predictedPayout": 64.1,
-          "hybridCap": 11.6,
-          "basePayout": 11.6,
-          "trustScore": 0.83,
-          "finalPayout": 9.63
+          "daily_baseline": 261,
+          "hourly_rate": 29,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 29,
+          "during_income": 23.2,
+          "post_income": 174,
+          "actual_income": 226.2,
+          "actual_loss": 34.8,
+          "severity": 0.6,
+          "predicted_loss": 156.6,
+          "plan_coverage": 0.8,
+          "alpha": 0.1,
+          "risk_score": 0.748,
+          "adjusted_coverage": 0.614,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.614,
+          "predicted_payout": 96.15,
+          "hybrid_cap": 34.8,
+          "base_payout": 34.8,
+          "trust_score": 0.83,
+          "final_payout": 28.88,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 261,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹261 ÷ 9hr shift",
+              "value": 29,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹29) + during(2hr×₹29×0.4) + post(6hr×₹29)",
+              "value": 226.2,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹261 − ₹226.2",
+              "value": 34.8,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹261 × severity(0.6)",
+              "value": 156.6,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.8 × (1 − 0.1×0.748) × trust(0.83)",
+              "value": 0.614,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.614 × eligibility_mult(1)",
+              "value": 0.614,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹156.6 × 0.614",
+              "value": 96.15,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹96.15, ₹34.8)",
+              "value": 34.8,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹34.8 × trust(0.83)",
+              "value": 28.88,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 9.63,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹9.63 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 28.88,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹28.88 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-008",
+          "worker_name": "Selvam K",
+          "upi_id": "selvam508@okicici",
+          "amount_rupees": 28.88,
+          "amount_paise": 2888,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPsqFbLvb6ZH",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPtVbLqGK2z8",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSt0F8LbCjm6v",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSt0F8LbCjm6v",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:30.788Z"
         }
       },
       {
-        "workerId": "WK-009",
+        "worker_id": "WK-009",
         "workerName": "Padma C",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "excellent",
+        "upi_id": "padma343@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -435,44 +2624,329 @@
           "participationScore": 0.96
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "96%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 96% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "4%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 4% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 14 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "excellent (96%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is excellent with score 96% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.96
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.96,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "96%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 96% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "4%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 4% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 14 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "excellent (96%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is excellent with score 96% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 32.56,
-          "preIncome": 32.56,
-          "duringIncome": 19.53,
-          "postIncome": 227.89,
-          "actualIncome": 279.98,
-          "dailyBaseline": 293,
-          "actualLoss": 13.02,
-          "severity": 0.4,
-          "predictedLoss": 117.2,
-          "planCoverage": 0.8,
-          "adjustedCoverage": 0.719,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.719,
-          "predictedPayout": 84.27,
-          "hybridCap": 13.02,
-          "basePayout": 13.02,
-          "trustScore": 0.96,
-          "finalPayout": 12.5
+          "daily_baseline": 293,
+          "hourly_rate": 32.56,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 32.56,
+          "during_income": 26.05,
+          "post_income": 195.36,
+          "actual_income": 253.97,
+          "actual_loss": 39.03,
+          "severity": 0.6,
+          "predicted_loss": 175.8,
+          "plan_coverage": 0.8,
+          "alpha": 0.1,
+          "risk_score": 0.644,
+          "adjusted_coverage": 0.719,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.719,
+          "predicted_payout": 126.4,
+          "hybrid_cap": 39.03,
+          "base_payout": 39.03,
+          "trust_score": 0.96,
+          "final_payout": 37.47,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 293,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹293 ÷ 9hr shift",
+              "value": 32.56,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹32.56) + during(2hr×₹32.56×0.4) + post(6hr×₹32.56)",
+              "value": 253.97,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹293 − ₹253.97",
+              "value": 39.03,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹293 × severity(0.6)",
+              "value": 175.8,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "0.8 × (1 − 0.1×0.644) × trust(0.96)",
+              "value": 0.719,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.719 × eligibility_mult(1)",
+              "value": 0.719,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹175.8 × 0.719",
+              "value": 126.4,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹126.4, ₹39.03)",
+              "value": 39.03,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹39.03 × trust(0.96)",
+              "value": 37.47,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 12.5,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹12.50 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 37.47,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹37.47 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-009",
+          "worker_name": "Padma C",
+          "upi_id": "padma343@okicici",
+          "amount_rupees": 37.47,
+          "amount_paise": 3747,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMPwIldX5oPFP",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMPx10BYuW8iI",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSt3YJmWno1HD",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSt3YJmWno1HD",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:34.164Z"
         }
       },
       {
-        "workerId": "WK-010",
+        "worker_id": "WK-010",
         "workerName": "Fatima T",
         "zone": "T. Nagar",
         "storeId": "DS-CHN-01",
         "eligibilityTier": "full",
         "trustType": "excellent",
+        "upi_id": "fatima845@okicici",
         "validation": {
           "sessionActive": true,
           "locationInZone": true,
@@ -481,35 +2955,319 @@
           "participationScore": 0.92
         },
         "fraud": {
+          "checks": [
+            {
+              "id": "session_active",
+              "label": "Session Active",
+              "category": "Eligibility",
+              "pass": true,
+              "actual": "active",
+              "threshold": "active",
+              "explanation": "Worker had an active shift session at the time of disruption"
+            },
+            {
+              "id": "location_in_zone",
+              "label": "Location in Affected Zone",
+              "category": "Location",
+              "pass": true,
+              "actual": "Confirmed in zone",
+              "threshold": "Must be within service zone",
+              "explanation": "Worker GPS confirmed within T. Nagar service zone"
+            },
+            {
+              "id": "pre_disruption_active",
+              "label": "Active Before Disruption",
+              "category": "Participation",
+              "pass": true,
+              "actual": "Working before trigger",
+              "threshold": "Must be working before disruption started",
+              "explanation": "Worker was already on shift and working before the disruption trigger"
+            },
+            {
+              "id": "gps_clean",
+              "label": "GPS Signal Integrity",
+              "category": "Location",
+              "pass": true,
+              "actual": "Clean signal",
+              "threshold": "No GPS spoofing or teleportation",
+              "explanation": "GPS signal shows consistent, realistic movement patterns"
+            },
+            {
+              "id": "participation_score",
+              "label": "Participation Score",
+              "category": "Activity",
+              "pass": true,
+              "actual": "92%",
+              "threshold": "≥ 40%",
+              "explanation": "Participation score 92% meets the minimum activity threshold"
+            },
+            {
+              "id": "idle_ratio",
+              "label": "Idle Time Ratio",
+              "category": "Activity",
+              "pass": true,
+              "actual": "4%",
+              "threshold": "≤ 50%",
+              "explanation": "Idle ratio 4% is within acceptable limits"
+            },
+            {
+              "id": "eligibility_tier",
+              "label": "Eligibility Tier",
+              "category": "Coverage",
+              "pass": true,
+              "actual": "full",
+              "threshold": "Must be enrolled in coverage",
+              "explanation": "Worker has full coverage tier based on 17 months of service"
+            },
+            {
+              "id": "trust_profile",
+              "label": "Trust Profile",
+              "category": "Behavioral",
+              "pass": true,
+              "actual": "excellent (93%)",
+              "threshold": "Profile must not be critical",
+              "explanation": "Trust profile is excellent with score 93% — behavioral history is acceptable"
+            }
+          ],
+          "passed_count": 8,
+          "failed_count": 0,
+          "total_checks": 8,
           "flags": [],
           "verdict": "clean",
-          "trustScore": 0.93
+          "verdict_explanation": "All 8 validation checks passed. Worker is fully eligible for the calculated payout.",
+          "trustScore": 0.93,
+          "categories": {
+            "eligibility": [
+              {
+                "id": "session_active",
+                "label": "Session Active",
+                "category": "Eligibility",
+                "pass": true,
+                "actual": "active",
+                "threshold": "active",
+                "explanation": "Worker had an active shift session at the time of disruption"
+              }
+            ],
+            "location": [
+              {
+                "id": "location_in_zone",
+                "label": "Location in Affected Zone",
+                "category": "Location",
+                "pass": true,
+                "actual": "Confirmed in zone",
+                "threshold": "Must be within service zone",
+                "explanation": "Worker GPS confirmed within T. Nagar service zone"
+              },
+              {
+                "id": "gps_clean",
+                "label": "GPS Signal Integrity",
+                "category": "Location",
+                "pass": true,
+                "actual": "Clean signal",
+                "threshold": "No GPS spoofing or teleportation",
+                "explanation": "GPS signal shows consistent, realistic movement patterns"
+              }
+            ],
+            "participation": [
+              {
+                "id": "pre_disruption_active",
+                "label": "Active Before Disruption",
+                "category": "Participation",
+                "pass": true,
+                "actual": "Working before trigger",
+                "threshold": "Must be working before disruption started",
+                "explanation": "Worker was already on shift and working before the disruption trigger"
+              },
+              {
+                "id": "participation_score",
+                "label": "Participation Score",
+                "category": "Activity",
+                "pass": true,
+                "actual": "92%",
+                "threshold": "≥ 40%",
+                "explanation": "Participation score 92% meets the minimum activity threshold"
+              },
+              {
+                "id": "idle_ratio",
+                "label": "Idle Time Ratio",
+                "category": "Activity",
+                "pass": true,
+                "actual": "4%",
+                "threshold": "≤ 50%",
+                "explanation": "Idle ratio 4% is within acceptable limits"
+              }
+            ],
+            "coverage": [
+              {
+                "id": "eligibility_tier",
+                "label": "Eligibility Tier",
+                "category": "Coverage",
+                "pass": true,
+                "actual": "full",
+                "threshold": "Must be enrolled in coverage",
+                "explanation": "Worker has full coverage tier based on 17 months of service"
+              }
+            ],
+            "behavioral": [
+              {
+                "id": "trust_profile",
+                "label": "Trust Profile",
+                "category": "Behavioral",
+                "pass": true,
+                "actual": "excellent (93%)",
+                "threshold": "Profile must not be critical",
+                "explanation": "Trust profile is excellent with score 93% — behavioral history is acceptable"
+              }
+            ]
+          }
         },
         "payoutCalculation": {
-          "hourlyRate": 36.22,
-          "preIncome": 36.22,
-          "duringIncome": 21.73,
-          "postIncome": 253.56,
-          "actualIncome": 311.51,
-          "dailyBaseline": 326,
-          "actualLoss": 14.49,
-          "severity": 0.4,
-          "predictedLoss": 130.4,
-          "planCoverage": 1,
-          "adjustedCoverage": 0.861,
-          "eligibilityMult": 1,
-          "effectiveCoverage": 0.861,
-          "predictedPayout": 112.27,
-          "hybridCap": 14.49,
-          "basePayout": 14.49,
-          "trustScore": 0.93,
-          "finalPayout": 13.48
+          "daily_baseline": 326,
+          "hourly_rate": 36.22,
+          "shift_hours": 9,
+          "disruption_hours": 2,
+          "pre_hours": 1,
+          "during_hours": 2,
+          "post_hours": 6,
+          "pre_income": 36.22,
+          "during_income": 28.98,
+          "post_income": 217.32,
+          "actual_income": 282.52,
+          "actual_loss": 43.48,
+          "severity": 0.6,
+          "predicted_loss": 195.6,
+          "plan_coverage": 1,
+          "alpha": 0.1,
+          "risk_score": 0.742,
+          "adjusted_coverage": 0.861,
+          "eligibility_tier": "full",
+          "eligibility_mult": 1,
+          "effective_coverage": 0.861,
+          "predicted_payout": 168.41,
+          "hybrid_cap": 43.48,
+          "base_payout": 43.48,
+          "trust_score": 0.93,
+          "final_payout": 40.44,
+          "formula_steps": [
+            {
+              "step": 1,
+              "label": "Daily Baseline Income",
+              "formula": "baseline_income[tuesday]",
+              "value": 326,
+              "unit": "₹",
+              "note": "Worker's average tuesday earnings over last 6 weeks"
+            },
+            {
+              "step": 2,
+              "label": "Hourly Rate",
+              "formula": "₹326 ÷ 9hr shift",
+              "value": 36.22,
+              "unit": "₹/hr",
+              "note": null
+            },
+            {
+              "step": 3,
+              "label": "Actual Income (Dynamic)",
+              "formula": "pre(1hr×₹36.22) + during(2hr×₹36.22×0.4) + post(6hr×₹36.22)",
+              "value": 282.52,
+              "unit": "₹",
+              "note": "Income reduced by severity during disruption window"
+            },
+            {
+              "step": 4,
+              "label": "Actual Loss",
+              "formula": "₹326 − ₹282.52",
+              "value": 43.48,
+              "unit": "₹",
+              "note": "Actual income drop due to disruption"
+            },
+            {
+              "step": 5,
+              "label": "Predicted Loss",
+              "formula": "₹326 × severity(0.6)",
+              "value": 195.6,
+              "unit": "₹",
+              "note": "Parametric estimate of expected income loss"
+            },
+            {
+              "step": 6,
+              "label": "Adjusted Coverage",
+              "formula": "1 × (1 − 0.1×0.742) × trust(0.93)",
+              "value": 0.861,
+              "unit": "",
+              "note": "Plan coverage modified by risk score and trust"
+            },
+            {
+              "step": 7,
+              "label": "Effective Coverage",
+              "formula": "0.861 × eligibility_mult(1)",
+              "value": 0.861,
+              "unit": "",
+              "note": "Eligibility tier: full"
+            },
+            {
+              "step": 8,
+              "label": "Predicted Payout",
+              "formula": "₹195.6 × 0.861",
+              "value": 168.41,
+              "unit": "₹",
+              "note": null
+            },
+            {
+              "step": 9,
+              "label": "Hybrid Cap Applied",
+              "formula": "min(₹168.41, ₹43.48)",
+              "value": 43.48,
+              "unit": "₹",
+              "note": "Capped by actual income drop to prevent overcompensation"
+            },
+            {
+              "step": 10,
+              "label": "Trust Adjustment",
+              "formula": "₹43.48 × trust(0.93)",
+              "value": 40.44,
+              "unit": "₹",
+              "note": "Final payout after trust score multiplier"
+            }
+          ]
         },
         "outcome": {
-          "payoutTriggered": true,
-          "payoutAmount": 13.48,
-          "payoutStatus": "approved",
-          "notificationMessage": "heavy rainfall disruption in T. Nagar verified. ₹13.48 credited to your UPI."
+          "payout_triggered": true,
+          "payout_amount": 40.44,
+          "payout_status": "approved",
+          "notification_message": "heavy rainfall disruption in T. Nagar verified. ₹40.44 has been credited to your UPI."
+        },
+        "razorpay": {
+          "worker_id": "WK-010",
+          "worker_name": "Fatima T",
+          "upi_id": "fatima845@okicici",
+          "amount_rupees": 40.44,
+          "amount_paise": 4044,
+          "steps": {
+            "contact": {
+              "attempted": true,
+              "success": true,
+              "contact_id": "cont_SZMQ07Vu4JHRbm",
+              "error": null
+            },
+            "fund_account": {
+              "attempted": true,
+              "success": true,
+              "fund_account_id": "fa_SZMQ0nnlyKuhEb",
+              "error": null
+            },
+            "payout": {
+              "attempted": true,
+              "success": true,
+              "payout_id": "pout_SZSt72OqC2Y6BR",
+              "error": null
+            }
+          },
+          "final_status": "success",
+          "razorpay_payout_id": "pout_SZSt72OqC2Y6BR",
+          "utr": null,
+          "error": null,
+          "processed_at": "2026-04-04T15:27:36.898Z"
         }
       }
     ],
@@ -519,9 +3277,142 @@
       "partial": 1,
       "blocked": 1,
       "ineligible": 2,
-      "totalDisbursed": 85.01,
+      "totalDisbursed": 255.03,
       "clusterRisk": 0.1,
       "marketCrash": false
+    },
+    "razorpay": {
+      "succeeded": 7,
+      "failed": 0,
+      "skipped": 0,
+      "totalPaid": 255.03
+    },
+    "datasetUpdate": {
+      "updated_count": 10,
+      "avg_trust_delta": 0.003,
+      "updates": [
+        {
+          "worker_id": "WK-001",
+          "name": "Revathi J",
+          "verdict": "blocked",
+          "trust_before": 0.52,
+          "trust_after": 0.43,
+          "trust_delta": -0.09,
+          "baseline_before": 395,
+          "baseline_after": 367,
+          "premium_before": 1695.71,
+          "premium_after": 1676.29
+        },
+        {
+          "worker_id": "WK-002",
+          "name": "Selvam G",
+          "verdict": "clean",
+          "trust_before": 0.87,
+          "trust_after": 0.89,
+          "trust_delta": 0.02,
+          "baseline_before": 428,
+          "baseline_after": 400,
+          "premium_before": 2022.64,
+          "premium_after": 2001.16
+        },
+        {
+          "worker_id": "WK-003",
+          "name": "Arun D",
+          "verdict": "clean",
+          "trust_before": 0.9,
+          "trust_after": 0.92,
+          "trust_delta": 0.02,
+          "baseline_before": 485,
+          "baseline_after": 455,
+          "premium_before": 2295.77,
+          "premium_after": 2272.81
+        },
+        {
+          "worker_id": "WK-004",
+          "name": "Vikram N",
+          "verdict": "ineligible",
+          "trust_before": 0.38,
+          "trust_after": 0.38,
+          "trust_delta": 0,
+          "baseline_before": 452,
+          "baseline_after": 452,
+          "premium_before": 2068.75,
+          "premium_after": 2068.74
+        },
+        {
+          "worker_id": "WK-005",
+          "name": "Bhavana H",
+          "verdict": "clean",
+          "trust_before": 0.75,
+          "trust_after": 0.77,
+          "trust_delta": 0.02,
+          "baseline_before": 527,
+          "baseline_after": 492,
+          "premium_before": 2220.66,
+          "premium_after": 2195.63
+        },
+        {
+          "worker_id": "WK-006",
+          "name": "Bharathi F",
+          "verdict": "partial",
+          "trust_before": 0.65,
+          "trust_after": 0.65,
+          "trust_delta": 0,
+          "baseline_before": 331,
+          "baseline_after": 309,
+          "premium_before": 1604.96,
+          "premium_after": 1587.44
+        },
+        {
+          "worker_id": "WK-007",
+          "name": "Anbu D",
+          "verdict": "ineligible",
+          "trust_before": 0.2,
+          "trust_after": 0.2,
+          "trust_delta": 0,
+          "baseline_before": 361,
+          "baseline_after": 361,
+          "premium_before": 1516.81,
+          "premium_after": 1516.8
+        },
+        {
+          "worker_id": "WK-008",
+          "name": "Selvam K",
+          "verdict": "clean",
+          "trust_before": 0.83,
+          "trust_after": 0.85,
+          "trust_delta": 0.02,
+          "baseline_before": 338,
+          "baseline_after": 316,
+          "premium_before": 1578.73,
+          "premium_after": 1561.82
+        },
+        {
+          "worker_id": "WK-009",
+          "name": "Padma C",
+          "verdict": "clean",
+          "trust_before": 0.96,
+          "trust_after": 0.98,
+          "trust_delta": 0.02,
+          "baseline_before": 410,
+          "baseline_after": 379,
+          "premium_before": 1582.49,
+          "premium_after": 1561.93
+        },
+        {
+          "worker_id": "WK-010",
+          "name": "Fatima T",
+          "verdict": "clean",
+          "trust_before": 0.93,
+          "trust_after": 0.95,
+          "trust_delta": 0.02,
+          "baseline_before": 410,
+          "baseline_after": 385,
+          "premium_before": 1904.94,
+          "premium_after": 1885.87
+        }
+      ],
+      "updated_at": "2026-04-04T15:27:40.500Z"
     }
   }
 ]

@@ -1,0 +1,9 @@
+{
+  "name": "arovy",
+  "version": "1.0.0",
+  "description": "Arovy monorepo root scripts",
+  "scripts": {
+    "dev": "npm run dev --prefix arovy-backend & npm run dev --prefix arovy-admin & npm run dev --prefix arovy-disruption-panel"
+  },
+  "private": true
+}

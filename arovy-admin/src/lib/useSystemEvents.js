@@ -1,47 +1,35 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 const BACKEND = 'http://localhost:3002'
 
 export function useSystemEvents(handlers = {}) {
-  const esRef    = useRef(null)
-  const [connected, setConnected] = useState(false)
+  const esRef      = useRef(null)
+  const handlersRef= useRef(handlers)
+  handlersRef.current = handlers
 
   useEffect(() => {
     const es = new EventSource(`${BACKEND}/api/events`)
     esRef.current = es
 
-    es.onopen = () => setConnected(true)
-    es.onerror = () => setConnected(false)
+    const on = (event, key) => {
+      es.addEventListener(event, (e) => {
+        try {
+          handlersRef.current[key]?.(JSON.parse(e.data))
+        } catch {}
+      })
+    }
 
-    // Initial state on connect
-    es.addEventListener('init', (e) => {
-      const data = JSON.parse(e.data)
-      handlers.onInit?.(data)
-    })
+    on('init',                    'onInit')
+    on('clock',                   'onClock')
+    on('disruption:scheduled',    'onScheduled')
+    on('disruption:active',       'onActive')
+    on('disruption:validating',   'onValidating')
+    on('disruption:validated',    'onValidated')
+    on('disruption:paying',       'onPaying')
+    on('disruption:completed',    'onCompleted')
+    on('disruption:error',        'onError')
 
-    // Clock tick from disruption panel
-    es.addEventListener('clock', (e) => {
-      const data = JSON.parse(e.data)
-      handlers.onClock?.(data)
-    })
-
-    // Disruption lifecycle
-    es.addEventListener('disruption:scheduled', (e) => {
-      handlers.onScheduled?.(JSON.parse(e.data))
-    })
-    es.addEventListener('disruption:active', (e) => {
-      handlers.onActive?.(JSON.parse(e.data))
-    })
-    es.addEventListener('disruption:validating', (e) => {
-      handlers.onValidating?.(JSON.parse(e.data))
-    })
-    es.addEventListener('disruption:completed', (e) => {
-      handlers.onCompleted?.(JSON.parse(e.data))
-    })
-
-    return () => { es.close(); setConnected(false) }
+    return () => { es.close() }
   }, [])
-
-  return { connected }
 }

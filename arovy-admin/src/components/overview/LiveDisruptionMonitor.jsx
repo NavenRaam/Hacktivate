@@ -1,88 +1,93 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useSystemEvents } from '@/lib/useSystemEvents'
 import { formatTime } from '@/lib/dataHelpers'
-import { CheckCircle2, XCircle, AlertCircle, MinusCircle, Wifi, WifiOff } from 'lucide-react'
-import TrustRing from '@/components/shared/TrustRing'
+import {
+  CheckCircle2, XCircle, AlertCircle, MinusCircle,
+  Wifi, WifiOff, Database, CreditCard
+} from 'lucide-react'
 
 const BACKEND = 'http://localhost:3002'
 
-function VerdictIcon({ verdict, size = 13 }) {
+function VerdictIcon({ verdict }) {
   const map = {
-    clean:      <CheckCircle2 size={size} color="#23D18B"/>,
-    partial:    <AlertCircle  size={size} color="#F5A623"/>,
-    suspicious: <AlertCircle  size={size} color="#F97316"/>,
-    blocked:    <XCircle      size={size} color="#F5532D"/>,
-    ineligible: <MinusCircle  size={size} color="#6B7280"/>,
+    clean:      <CheckCircle2 size={13} color="#23D18B"/>,
+    partial:    <AlertCircle  size={13} color="#F5A623"/>,
+    suspicious: <AlertCircle  size={13} color="#F97316"/>,
+    blocked:    <XCircle      size={13} color="#F5532D"/>,
+    ineligible: <MinusCircle  size={13} color="#6B7280"/>,
   }
   return map[verdict] || map.ineligible
 }
 
+// Phase labels and colors
+const PHASE_CONFIG = {
+  idle:       { label:'No Active Event',  color:'rgba(238,242,255,0.3)',  dot:'bg-zinc-600'             },
+  scheduled:  { label:'Scheduled',        color:'#F5A623',                dot:'bg-amber-500 animate-pulse'},
+  active:     { label:'Disruption Active',color:'#F5532D',                dot:'bg-red-500 animate-pulse' },
+  validating: { label:'Running Validation',color:'#4F8EF7',               dot:'bg-blue-500 animate-pulse'},
+  validated:  { label:'Validation Done',  color:'#4F8EF7',                dot:'bg-blue-500'              },
+  paying:     { label:'Processing Payouts',color:'#8B7FED',               dot:'bg-iris-500 animate-pulse'},
+  completed:  { label:'Completed',        color:'#23D18B',                dot:'bg-green-500'             },
+}
+
 export default function LiveDisruptionMonitor() {
   const [clockMins,    setClockMins]    = useState(null)
+  const [phase,        setPhase]        = useState('idle')
   const [activeD,      setActiveD]      = useState(null)
-  const [validating,   setValidating]   = useState(false)
+  const [scheduledD,   setScheduledD]   = useState(null)
   const [results,      setResults]      = useState([])
   const [summary,      setSummary]      = useState(null)
-  const [phase,        setPhase]        = useState('idle') // idle|scheduled|active|validating|completed
-  const [scheduledD,   setScheduledD]   = useState(null)
-  const [visibleCount, setVisibleCount] = useState(0)
+  const [razorpay,     setRazorpay]     = useState(null)
+  const [datasetUpdate,setDatasetUpdate]= useState(null)
+  const [progress,     setProgress]     = useState(0)
 
-  const { connected } = useSystemEvents({
-    onInit: (data) => {
-      if (data.clock) setClockMins(data.clock.minutes)
-      if (data.activeDisruption) {
-        setActiveD(data.activeDisruption)
-        setPhase('active')
-      }
-    },
-    onClock: (data) => setClockMins(data.minutes),
-    onScheduled: (d) => {
-      setScheduledD(d)
-      setPhase('scheduled')
-      setResults([])
-      setSummary(null)
-    },
-    onActive: (d) => {
-      setActiveD(d)
-      setPhase('active')
-      setScheduledD(null)
-      setResults([])
-      setSummary(null)
-      setVisibleCount(0)
-    },
-    onValidating: () => {
-      setPhase('validating')
-      setValidating(true)
-    },
-    onCompleted: (data) => {
-      setSummary(data.summary)
-      setPhase('completed')
-      setValidating(false)
-      // Reveal workers one by one
-      data.results.forEach((r, i) => {
-        setTimeout(() => {
-          setResults(prev => [...prev, r])
-          setVisibleCount(i + 1)
-        }, i * 120)
-      })
-    },
+  const connected = true // SSE connection status handled internally
+  useSystemEvents({
+      onInit: (d) => {
+        if (d.clock) setClockMins(d.clock.minutes)
+        if (d.activeDisruption) { setActiveD(d.activeDisruption); setPhase('active') }
+      },
+      onClock: (d) => {
+        setClockMins(d.minutes)
+        if (activeD) {
+          const start = parseTime(activeD.startTime)
+          const dur   = activeD.durationHours * 60
+          setProgress(Math.min(100, Math.max(0, ((d.minutes - start) / dur) * 100)))
+        }
+      },
+      onScheduled:  (d) => { setScheduledD(d); setPhase('scheduled'); setResults([]); setSummary(null) },
+      onActive:     (d) => { setActiveD(d); setPhase('active'); setScheduledD(null); setResults([]); setProgress(0) },
+      onValidating: ()  => setPhase('validating'),
+      onValidated:  (d) => {
+        setPhase('validated')
+        setSummary(d.summary)
+        // stream results in one by one
+        d.results.forEach((r, i) => {
+          setTimeout(() => setResults(prev => [...prev, r]), i * 100)
+        })
+      },
+      onPaying:     ()  => setPhase('paying'),
+      onCompleted:  (d) => {
+        setPhase('completed')
+        setSummary(d.summary)
+        setRazorpay(d.razorpay)
+        setDatasetUpdate(d.datasetUpdate)
+        // update results with razorpay data
+        if (d.results) setResults(d.results)
+      },
   })
 
-  const progress = activeD && clockMins !== null
-    ? Math.min(100, Math.max(0,
-        ((clockMins - parseTime(activeD.startTime)) /
-         (activeD.durationHours * 60)) * 100
-      ))
-    : 0
+  const cfg = PHASE_CONFIG[phase] || PHASE_CONFIG.idle
 
   if (phase === 'idle') {
     return (
       <div className="card p-6 flex flex-col items-center justify-center min-h-48 text-center">
-        <div className={`flex items-center gap-2 mb-3 ${connected ? 'text-green-400' : 'text-red-400'}`}>
+        <div className={`flex items-center gap-2 mb-3`}
+          style={{ color: connected ? '#23D18B' : '#F5532D' }}>
           {connected ? <Wifi size={14}/> : <WifiOff size={14}/>}
           <span className="text-xs font-mono">
-            {connected ? 'Connected to backend' : 'Backend offline'}
+            {connected ? 'Connected · watching for events' : 'Backend offline'}
           </span>
         </div>
         <p className="text-sm" style={{ color:'rgba(238,242,255,0.3)' }}>
@@ -96,64 +101,30 @@ export default function LiveDisruptionMonitor() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
 
-      {/* Connection indicator */}
+      {/* Phase status */}
       <div className="flex items-center justify-between">
-        <h3 className="font-display font-bold text-white text-base">Live System</h3>
-        <div className={`flex items-center gap-1.5 text-xs font-mono ${connected ? 'text-green-400' : 'text-red-400'}`}>
-          {connected ? <Wifi size={11}/> : <WifiOff size={11}/>}
-          {connected ? 'Live' : 'Reconnecting'}
+        <div className="flex items-center gap-2">
+          <div className={`w-2 h-2 rounded-full ${cfg.dot}`}/>
+          <span className="text-xs font-mono" style={{ color: cfg.color }}>
+            {cfg.label}
+          </span>
         </div>
+        {clockMins !== null && (
+          <span className="text-xs font-mono" style={{ color:'rgba(238,242,255,0.3)' }}>
+            {formatTime(clockMins)}
+          </span>
+        )}
       </div>
 
-      {/* Scheduled state */}
-      {phase === 'scheduled' && scheduledD && (
-        <div className="card p-5" style={{ borderColor:'rgba(245,166,35,0.25)', background:'rgba(245,166,35,0.05)' }}>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"/>
-            <span className="text-xs font-mono text-amber-400">Disruption Scheduled</span>
-          </div>
-          <p className="font-display font-semibold text-white">{scheduledD.storeName}</p>
-          <p className="text-xs font-mono mt-1" style={{ color:'rgba(238,242,255,0.4)' }}>
-            {scheduledD.zone} · {scheduledD.city}
-          </p>
-          <div className="grid grid-cols-3 gap-3 mt-4 text-xs font-mono">
-            <div className="rounded-lg p-2.5" style={{ background:'rgba(255,255,255,0.05)' }}>
-              <p style={{ color:'rgba(238,242,255,0.35)' }}>Start</p>
-              <p className="text-amber-400 mt-0.5">{scheduledD.startTime}</p>
-            </div>
-            <div className="rounded-lg p-2.5" style={{ background:'rgba(255,255,255,0.05)' }}>
-              <p style={{ color:'rgba(238,242,255,0.35)' }}>Workers</p>
-              <p className="text-white mt-0.5">{scheduledD.affectedTotal}</p>
-            </div>
-            <div className="rounded-lg p-2.5" style={{ background:'rgba(255,255,255,0.05)' }}>
-              <p style={{ color:'rgba(238,242,255,0.35)' }}>Severity</p>
-              <p className="text-white mt-0.5">{scheduledD.severity}</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Active state */}
-      {(phase === 'active' || phase === 'validating') && activeD && (
-        <div className="card p-5 relative overflow-hidden"
-          style={{ borderColor:'rgba(239,68,68,0.3)', background:'rgba(239,68,68,0.05)' }}>
-          {phase === 'active' && <div className="scan-overlay"/>}
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"/>
-            <span className="text-xs font-mono text-red-400">
-              {phase === 'validating' ? 'Running Validation...' : 'Disruption Active'}
-            </span>
-            {clockMins !== null && (
-              <span className="ml-auto text-xs font-mono" style={{ color:'rgba(238,242,255,0.3)' }}>
-                {formatTime(clockMins)}
-              </span>
-            )}
-          </div>
-          <p className="font-display font-semibold text-white">{activeD.storeName}</p>
-          <p className="text-xs font-mono mt-1 mb-4" style={{ color:'rgba(238,242,255,0.4)' }}>
-            {activeD.zone} · {activeD.city}
+      {/* Active disruption card */}
+      {(phase === 'active' || phase === 'validating' || phase === 'validated' || phase === 'paying') && activeD && (
+        <div className="card p-4"
+          style={{ borderColor:'rgba(245,83,45,0.25)', background:'rgba(245,83,45,0.04)' }}>
+          <p className="font-display font-semibold text-white text-sm">{activeD.storeName}</p>
+          <p className="text-xs font-mono mt-0.5 mb-3" style={{ color:'rgba(238,242,255,0.4)' }}>
+            {activeD.zone} · {activeD.city} · {activeD.startTime}–{activeD.endTime}
           </p>
 
           {phase === 'active' && (
@@ -162,109 +133,147 @@ export default function LiveDisruptionMonitor() {
                 style={{ color:'rgba(238,242,255,0.35)' }}>
                 <span>Progress</span><span>{Math.round(progress)}%</span>
               </div>
-              <div className="h-1.5 rounded-full overflow-hidden mb-4"
+              <div className="h-1.5 rounded-full overflow-hidden mb-3"
                 style={{ background:'rgba(255,255,255,0.08)' }}>
                 <div className="h-full bg-red-500 rounded-full transition-all duration-1000"
                   style={{ width:`${progress}%` }}/>
               </div>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-xl p-3 text-center"
-                  style={{ background:'rgba(255,255,255,0.04)' }}>
-                  <p className="font-display font-bold text-xl text-white">{activeD.affectedTotal}</p>
-                  <p className="text-xs font-mono mt-0.5" style={{ color:'rgba(238,242,255,0.35)' }}>
-                    workers in zone
-                  </p>
-                </div>
-                <div className="rounded-xl p-3 text-center"
-                  style={{ background:'rgba(35,209,139,0.08)', border:'1px solid rgba(35,209,139,0.15)' }}>
-                  <p className="font-display font-bold text-xl text-green-400">{activeD.affectedActive}</p>
-                  <p className="text-xs font-mono mt-0.5" style={{ color:'rgba(238,242,255,0.35)' }}>
-                    active in shift
-                  </p>
-                </div>
-              </div>
             </>
           )}
 
-          {phase === 'validating' && (
-            <div className="flex items-center gap-2 text-xs font-mono"
-              style={{ color:'rgba(238,242,255,0.5)' }}>
-              <div className="w-3 h-3 border border-blue-400/50 border-t-blue-400 rounded-full animate-spin"/>
-              Running validation pipeline for {activeD.affectedActive} workers...
+          <div className="grid grid-cols-2 gap-2">
+            <div className="rounded-lg p-2 text-center"
+              style={{ background:'rgba(255,255,255,0.04)' }}>
+              <p className="font-display font-bold text-lg text-white">{activeD.affectedTotal}</p>
+              <p className="text-xs font-mono" style={{ color:'rgba(238,242,255,0.35)' }}>in zone</p>
             </div>
-          )}
+            <div className="rounded-lg p-2 text-center"
+              style={{ background:'rgba(35,209,139,0.06)', border:'1px solid rgba(35,209,139,0.12)' }}>
+              <p className="font-display font-bold text-lg text-green-400">{activeD.affectedActive}</p>
+              <p className="text-xs font-mono" style={{ color:'rgba(238,242,255,0.35)' }}>active</p>
+            </div>
+          </div>
         </div>
       )}
 
-      {/* Completed — worker results stream in */}
-      {phase === 'completed' && summary && (
-        <div>
-          {/* Summary */}
-          <div className="card p-4 mb-3"
-            style={{ borderColor:'rgba(35,209,139,0.25)', background:'rgba(35,209,139,0.05)' }}>
-            <div className="flex items-center gap-2 mb-3">
-              <CheckCircle2 size={13} color="#23D18B"/>
-              <span className="text-xs font-mono text-green-400">Validation Complete</span>
+      {/* Validation summary */}
+      {summary && (
+        <div className="card p-4"
+          style={{ borderColor:'rgba(35,209,139,0.2)', background:'rgba(35,209,139,0.04)' }}>
+          <div className="flex items-center gap-2 mb-3">
+            <CheckCircle2 size={13} color="#23D18B"/>
+            <span className="text-xs font-mono text-green-400">Validation Complete</span>
+          </div>
+          <div className="grid grid-cols-4 gap-2 text-center text-xs font-mono mb-3">
+            {[
+              [summary.approved,  '#23D18B', '✓'],
+              [summary.partial,   '#F5A623', '~'],
+              [summary.blocked,   '#F5532D', '✗'],
+              [summary.ineligible,'#6B7280', '—'],
+            ].map(([v,c,icon], i) => (
+              <div key={i}>
+                <p className="font-bold text-base" style={{ color:c }}>{v}</p>
+                <p style={{ color:'rgba(238,242,255,0.35)' }}>{icon}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <p className="font-display font-bold text-xl" style={{ color:'#23D18B' }}>
+              ₹{summary.totalDisbursed}
+            </p>
+            <p className="text-xs font-mono mt-0.5" style={{ color:'rgba(238,242,255,0.35)' }}>
+              total disbursed
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Razorpay batch summary */}
+      {razorpay && (
+        <div className="card p-4"
+          style={{ borderColor:'rgba(139,127,237,0.2)', background:'rgba(139,127,237,0.04)' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <CreditCard size={13} color="#8B7FED"/>
+            <span className="text-xs font-mono" style={{ color:'#8B7FED' }}>
+              Razorpay Payouts
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-xs font-mono text-center">
+            <div>
+              <p className="font-bold" style={{ color:'#23D18B' }}>{razorpay.succeeded}</p>
+              <p style={{ color:'rgba(238,242,255,0.35)' }}>succeeded</p>
             </div>
-            <div className="grid grid-cols-4 gap-2 text-center text-xs font-mono">
-              <div>
-                <p className="font-bold text-base text-green-400">{summary.approved}</p>
-                <p style={{ color:'rgba(238,242,255,0.35)' }}>approved</p>
-              </div>
-              <div>
-                <p className="font-bold text-base text-amber-400">{summary.partial}</p>
-                <p style={{ color:'rgba(238,242,255,0.35)' }}>partial</p>
-              </div>
-              <div>
-                <p className="font-bold text-base text-red-400">{summary.blocked}</p>
-                <p style={{ color:'rgba(238,242,255,0.35)' }}>blocked</p>
-              </div>
-              <div>
-                <p className="font-bold text-base" style={{ color:'#4F8EF7' }}>
-                  ₹{summary.totalDisbursed}
+            <div>
+              <p className="font-bold" style={{ color:'#F5532D' }}>{razorpay.failed}</p>
+              <p style={{ color:'rgba(238,242,255,0.35)' }}>failed</p>
+            </div>
+            <div>
+              <p className="font-bold" style={{ color:'#6B7280' }}>{razorpay.skipped}</p>
+              <p style={{ color:'rgba(238,242,255,0.35)' }}>skipped</p>
+            </div>
+          </div>
+          <p className="text-xs font-mono text-center mt-2" style={{ color:'#23D18B' }}>
+            ₹{razorpay.totalPaid} transferred
+          </p>
+        </div>
+      )}
+
+      {/* Dataset update summary */}
+      {datasetUpdate && (
+        <div className="card p-4"
+          style={{ borderColor:'rgba(79,142,247,0.2)', background:'rgba(79,142,247,0.04)' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Database size={13} color="#4F8EF7"/>
+            <span className="text-xs font-mono" style={{ color:'#4F8EF7' }}>
+              Dataset Updated
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+            <div>
+              <p style={{ color:'rgba(238,242,255,0.35)' }}>Workers updated</p>
+              <p className="font-bold text-white mt-0.5">{datasetUpdate.updated_count}</p>
+            </div>
+            <div>
+              <p style={{ color:'rgba(238,242,255,0.35)' }}>Avg trust delta</p>
+              <p className="font-bold mt-0.5"
+                style={{ color: datasetUpdate.avg_trust_delta >= 0 ? '#23D18B' : '#F5532D' }}>
+                {datasetUpdate.avg_trust_delta > 0 ? '+' : ''}{datasetUpdate.avg_trust_delta}
+              </p>
+            </div>
+          </div>
+          <p className="text-xs font-mono mt-2" style={{ color:'rgba(238,242,255,0.3)' }}>
+            Trust scores, baseline income and premiums recalculated
+          </p>
+        </div>
+      )}
+
+      {/* Streaming worker results */}
+      {results.length > 0 && (
+        <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+          {results.map((r, i) => (
+            <div key={r.workerId || r.worker_id || i}
+              className="flex items-center gap-2.5 p-2.5 rounded-xl"
+              style={{
+                background:'rgba(255,255,255,0.03)',
+                border:'1px solid rgba(255,255,255,0.06)',
+              }}>
+              <VerdictIcon verdict={r.verdict}/>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-medium text-white truncate">{r.workerName}</p>
+                <p className="text-xs font-mono truncate"
+                  style={{ color:'rgba(238,242,255,0.35)' }}>
+                  {r.passedChecks}/{r.totalChecks} checks · {r.notification?.slice(0,50)}…
                 </p>
-                <p style={{ color:'rgba(238,242,255,0.35)' }}>disbursed</p>
               </div>
+              {r.payoutAmount > 0 ? (
+                <p className="text-xs font-mono font-semibold text-green-400 shrink-0">
+                  ₹{r.payoutAmount}
+                </p>
+              ) : (
+                <p className="text-xs font-mono shrink-0" style={{ color:'rgba(238,242,255,0.2)' }}>—</p>
+              )}
             </div>
-          </div>
-
-          {/* Worker results — animate in */}
-          <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
-            {results.map((r, i) => {
-              const statusCls = {
-                approved:'text-green-400', partial_approved:'text-amber-400',
-                blocked:'text-red-400', not_applicable:'text-zinc-500'
-              }[r.payoutStatus] || 'text-zinc-500'
-
-              return (
-                <div key={r.workerId}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl"
-                  style={{
-                    background:'rgba(255,255,255,0.03)',
-                    border:'1px solid rgba(255,255,255,0.06)',
-                    animation:'slideIn 0.3s ease forwards',
-                  }}>
-                  <VerdictIcon verdict={r.verdict}/>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium text-white truncate">{r.workerName}</p>
-                    <p className="text-[10px] font-mono truncate"
-                      style={{ color:'rgba(238,242,255,0.35)' }}>
-                      {r.notification}
-                    </p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    {r.payoutAmount > 0 ? (
-                      <p className="text-xs font-mono font-semibold text-green-400">
-                        ₹{r.payoutAmount}
-                      </p>
-                    ) : (
-                      <p className="text-xs font-mono text-zinc-600">—</p>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          ))}
         </div>
       )}
     </div>
@@ -274,5 +283,5 @@ export default function LiveDisruptionMonitor() {
 function parseTime(str) {
   if (!str) return 0
   const [h,m] = str.split(':').map(Number)
-  return h*60 + m
+  return h * 60 + m
 }
