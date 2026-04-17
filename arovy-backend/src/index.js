@@ -1,27 +1,26 @@
 require('dotenv').config()
-
-const express      = require('express')
-const cors         = require('cors')
-
-const clockRouter       = require('./routes/clock')
-const disruptionsRouter = require('./routes/disruptions')
-const eventsRouter      = require('./routes/events')
-const workersRouter     = require('./routes/workers')
+const express = require('express')
+const cors    = require('cors')
 
 const app  = express()
 const PORT = process.env.PORT || 3002
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: '*',
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
 }))
 app.use(express.json())
 
-app.use('/api/clock',       clockRouter)
-app.use('/api/disruptions', disruptionsRouter)
-app.use('/api/events',      eventsRouter)
-app.use('/api/workers',     workersRouter)
+// ── Routes ───────────────────────────────────────────────
+app.use('/api/auth',        require('./routes/auth'))
+app.use('/api/clock',       require('./routes/clock'))
+app.use('/api/disruptions', require('./routes/disruptions'))
+app.use('/api/events',      require('./routes/events'))
+app.use('/api/workers',     require('./routes/workers'))
+app.use('/api/stores',      require('./routes/stores'))
+app.use('/api/stats',       require('./routes/stats'))
+app.use('/api/predict',     require('./routes/predict'))
 
 app.get('/health', (req, res) => {
   const rz = !!(process.env.RAZORPAY_KEY_ID && !process.env.RAZORPAY_KEY_ID.includes('REPLACE'))
@@ -32,6 +31,7 @@ app.listen(PORT, () => {
   const rz = !!(process.env.RAZORPAY_KEY_ID && !process.env.RAZORPAY_KEY_ID.includes('REPLACE'))
   console.log(`\n🟢 Arovy Backend  http://localhost:${PORT}`)
   console.log(`   Razorpay: ${rz ? '✓ Configured' : '⚠ Not configured'}`)
+  console.log(`   API routes: auth, clock, disruptions, events, workers, stores, stats, predict`)
   console.log(`   Panel  → http://localhost:3000`)
   console.log(`   Admin  → http://localhost:3001\n`)
 })

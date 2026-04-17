@@ -1,23 +1,15 @@
-// SSE broker — keeps a registry of all connected clients
-// and broadcasts named events to all of them
-
 const clients = new Set()
 
 function addClient(res) {
   clients.add(res)
-  console.log(`[SSE] client connected — total: ${clients.size}`)
-  res.on('close', () => {
-    clients.delete(res)
-    console.log(`[SSE] client disconnected — total: ${clients.size}`)
-  })
+  console.log(`[SSE] connected — total: ${clients.size}`)
+  res.on('close', () => { clients.delete(res); console.log(`[SSE] disconnected — total: ${clients.size}`) })
 }
 
-function broadcast(eventName, data) {
-  const payload = `event: ${eventName}\ndata: ${JSON.stringify(data)}\n\n`
-  clients.forEach(res => {
-    try { res.write(payload) } catch (_) { clients.delete(res) }
-  })
-  console.log(`[SSE] broadcast "${eventName}" to ${clients.size} client(s)`)
+function broadcast(event, data) {
+  const payload = `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
+  clients.forEach(res => { try { res.write(payload) } catch { clients.delete(res) } })
+  console.log(`[SSE] broadcast "${event}" to ${clients.size} client(s)`)
 }
 
 module.exports = { addClient, broadcast }

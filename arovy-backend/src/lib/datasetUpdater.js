@@ -1,141 +1,163 @@
-// datasetUpdater.js — updates dataset.json after disruption
-// Only modifies workers in the affected zone. All others unchanged.
+// datasetUpdater.js
+// Single source of truth update after each disruption.
+// Updates: worker trust, baseline, premium, session
+//          store reliability, disruption_count, avg_trust
+//          city-level aggregates propagate automatically via workers route
 
 const fs   = require('fs')
 const path = require('path')
+const DS_PATH = path.join(__dirname, '../../data/dataset.json')
 
-const DATASET_PATH = path.join(__dirname, '../../data/dataset.json')
+function load()     { return JSON.parse(fs.readFileSync(DS_PATH, 'utf8')) }
+function save(ds)   { fs.writeFileSync(DS_PATH, JSON.stringify(ds, null, 2)) }
 
-function loadDataset() {
-  return JSON.parse(fs.readFileSync(DATASET_PATH, 'utf8'))
+function trustType(s) {
+  return s>=0.90?'excellent':s>=0.75?'good':s>=0.55?'moderate':s>=0.35?'low':'critical'
 }
 
-function saveDataset(dataset) {
-  fs.writeFileSync(DATASET_PATH, JSON.stringify(dataset, null, 2))
-}
-
-// Trust recalculation based on verdict
-function recalculateTrust(profile, verdict, flags) {
-  const current = profile.trust_score
-  const deltas  = { clean:+0.02, partial:0, suspicious:-0.04, blocked:-0.08, ineligible:0 }
-  const delta   = deltas[verdict] || 0
-  const penalty = ['suspicious','blocked'].includes(verdict)
-    ? Math.min(flags.length * 0.01, 0.04) : 0
-  const newScore = +Math.max(0.05, Math.min(0.99, current + delta - penalty)).toFixed(3)
-  const ratio    = newScore / (current || 1)
-
+function recalcTrust(profile, verdict, flags) {
+  const cur   = profile.trust_score
+  const delta = { clean:+0.02, partial:0, suspicious:-0.04, blocked:-0.08, ineligible:0 }[verdict] || 0
+  const pen   = ['suspicious','blocked'].includes(verdict) ? Math.min(flags.length * 0.01, 0.04) : 0
+  const ns    = +Math.max(0.05, Math.min(0.99, cur + delta - pen)).toFixed(3)
+  const ratio = ns / (cur || 1)
   return {
-    trust_score:               newScore,
+    trust_score:               ns,
     participation_consistency: +Math.min(0.99, profile.participation_consistency * ratio).toFixed(3),
     movement_consistency:      +Math.min(0.99, profile.movement_consistency * ratio).toFixed(3),
     historical_deviation_avg:  +Math.max(0.01, profile.historical_deviation_avg / ratio).toFixed(3),
     anomaly_flag_count:        profile.anomaly_flag_count + (flags.length > 0 ? 1 : 0),
-    profile_type:              trustType(newScore),
+    profile_type:              trustType(ns),
     last_updated:              new Date().toISOString().split('T')[0],
   }
 }
 
-function trustType(s) {
-  if (s >= 0.90) return 'excellent'
-  if (s >= 0.75) return 'good'
-  if (s >= 0.55) return 'moderate'
-  if (s >= 0.35) return 'low'
-  return 'critical'
+function recalcBaseline(cur, day, actualIncome) {
+  if (!day || actualIncome === undefined) return cur
+  return { ...cur, [day]: Math.round((cur[day] || 0) * 0.80 + actualIncome * 0.20) }
 }
 
-// Baseline: 80/20 weighted average for affected day only
-function recalculateBaseline(current, day, actualIncome) {
-  if (!day || actualIncome === undefined) return current
-  const existing = current[day] || 0
-  return { ...current, [day]: Math.round(existing * 0.80 + actualIncome * 0.20) }
-}
-
-// Premium recalc after baseline change
-function recalculatePremium(worker, updatedBaseline) {
-  const avgDaily  = Object.values(updatedBaseline).reduce((s,v) => s+v, 0) / 7
-  const weeklyAvg = +(avgDaily * 6).toFixed(2)
-  const expLoss   = +(weeklyAvg * worker.risk_profile.risk_score).toFixed(2)
-  const margin    = worker.insurance_plan.margin || 0.20
+// Realistic premium formula: 2-5% of weekly income
+function recalcPremium(worker, baseline) {
+  const PLAN  = { pro:{cov:0.85,mult:1.30}, standard:{cov:0.70,mult:1.00}, basic:{cov:0.55,mult:0.75} }
+  const plan  = worker.insurance_plan.plan_tier
+  const cfg   = PLAN[plan] || PLAN.basic
+  const avgD  = Object.values(baseline).reduce((s,v)=>s+v,0) / 7
+  const weekly = avgD * 6
+  const rs     = worker.risk_profile.risk_score
+  const riskAdj= 0.80 + (rs * 0.40)
+  const expLoss= (3.2 / 52) * 145 * riskAdj * cfg.cov
+  let   prem   = expLoss * 9.5 * cfg.mult
+  prem         = Math.min(prem, weekly * 0.05)
+  prem         = Math.max(prem, 40.0)
   return {
-    weekly_baseline: weeklyAvg,
-    expected_loss:   expLoss,
-    weekly_premium:  +(expLoss * (1 + margin)).toFixed(2),
+    weekly_baseline: +weekly.toFixed(2),
+    expected_loss:   +expLoss.toFixed(2),
+    weekly_premium:  +prem.toFixed(2),
+    annual_premium:  +(prem * 52).toFixed(2),
+    coverage_tier:   plan,
   }
 }
 
-function recalcAdjustedCoverage(worker, newTrustScore) {
-  const { base_coverage: cov, alpha = 0.1 } = worker.insurance_plan
-  return +(cov * (1 - alpha * worker.risk_profile.risk_score) * newTrustScore).toFixed(3)
+function recalcAdjCov(worker, trust) {
+  const cov   = worker.insurance_plan.base_coverage || 0.70
+  const alpha = worker.insurance_plan.alpha || 0.1
+  const rs    = worker.risk_profile.risk_score
+  return +(cov * (1 - alpha * rs) * trust).toFixed(3)
 }
 
-function refreshSession(sess, actualIncome, type) {
-  return {
-    ...sess,
-    status:                    'active',
-    active_minutes_so_far:     Math.floor(Math.random() * 60 + 30),
-    idle_ratio_so_far:         +(Math.random() * 0.08 + 0.04).toFixed(2),
-    participation_score_so_far:+(Math.random() * 0.10 + 0.85).toFixed(2),
-    pre_disruption_confirmed:  true,
-    earnings_before_disruption:actualIncome,
-    last_disruption_type:      type,
-    last_updated:              new Date().toISOString(),
-  }
-}
-
-function getDayOfWeek() {
+function getDOW() {
   return ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'][new Date().getDay()]
 }
 
-// ─── Main ─────────────────────────────────────────────────
-function updateDatasetAfterDisruption(validationResults, disruption) {
-  console.log(`[dataset] updating ${validationResults.length} workers`)
+// ── Update store aggregates ──────────────────────────────
+function updateStoreAggregates(ds, affectedStoreId, severity, now) {
+  if (!ds.stores || !Array.isArray(ds.stores)) return
 
-  let dataset
-  try {
-    dataset = loadDataset()
-  } catch (e) {
-    console.error('[dataset] failed to load:', e.message)
-    return { updated_count: 0, error: e.message }
+  const sIdx = ds.stores.findIndex(s => s.store_id === affectedStoreId)
+  if (sIdx === -1) return
+
+  const store   = ds.stores[sIdx]
+  const workers = ds.workers.filter(w => w.primary_store_id === affectedStoreId)
+
+  // Reliability degrades slightly after each disruption, recovers slowly over time
+  const newReliability = +Math.max(0.10, Math.min(0.99,
+    (store.reliability || 0.60) * (1 - severity * 0.10)
+  )).toFixed(3)
+
+  // Live trust and risk aggregates from workers
+  const avgTrust = workers.length
+    ? +(workers.reduce((s,w) => s + w.trust_profile.trust_score, 0) / workers.length).toFixed(3)
+    : store.avg_trust || 0.70
+
+  const avgRisk = workers.length
+    ? +(workers.reduce((s,w) => s + w.risk_profile.risk_score, 0) / workers.length).toFixed(3)
+    : store.avg_risk || 0.50
+
+  const totalPremium = workers.reduce((s,w) => s + w.premium.weekly_premium, 0)
+
+  ds.stores[sIdx] = {
+    ...store,
+    reliability:           newReliability,
+    avg_trust:             avgTrust,
+    avg_risk:              avgRisk,
+    weekly_premium_pool:   +totalPremium.toFixed(2),
+    disruption_count:      (store.disruption_count || 0) + 1,
+    last_disruption_at:    now,
+    last_disruption_type:  undefined, // will be set by caller
   }
+}
 
-  const workerMap = {}
-  dataset.workers.forEach(w => { workerMap[w.worker_id] = w })
+// ── Main export ──────────────────────────────────────────
+function updateDatasetAfterDisruption(validationResults, disruption) {
+  console.log(`[dataset] updating ${validationResults.length} workers + store ${disruption.storeId}`)
+
+  let ds
+  try { ds = load() } catch(e) { return { updated_count:0, error:e.message } }
+
+  const wmap = {}
+  ds.workers.forEach(w => { wmap[w.worker_id] = w })
 
   const updates = []
-  const day     = disruption.dayOfWeek || getDayOfWeek()
+  const day     = disruption.dayOfWeek || getDOW()
+  const now     = new Date().toISOString()
 
   for (const result of validationResults) {
-    const worker = workerMap[result.workerId || result.worker_id]
+    const worker = wmap[result.worker_id || result.workerId]
     if (!worker) { console.warn(`[dataset] worker ${result.workerId} not found`); continue }
 
-    const verdict   = result.fraud?.verdict || 'ineligible'
-    const flags     = result.fraud?.flags   || []
+    const verdict   = result.fraud?.verdict   || 'ineligible'
+    const flags     = result.fraud?.flags     || []
     const calc      = result.payoutCalculation || {}
-    const actualInc = calc.actual_income       || 0
+    const actualInc = calc.actual_income      || 0
     const wasActive = result.validation?.sessionActive !== false
 
-    const prevTrust    = worker.trust_profile.trust_score
-    const prevBaseline = worker.baseline_income[day]
-    const prevPremium  = worker.premium.weekly_premium
+    const prevTrust   = worker.trust_profile.trust_score
+    const prevBase    = worker.baseline_income[day]
+    const prevPrem    = worker.premium.weekly_premium
 
-    const newTrust    = recalculateTrust(worker.trust_profile, verdict, flags)
-    const newBaseline = wasActive
-      ? recalculateBaseline(worker.baseline_income, day, actualInc)
+    const newTrust   = recalcTrust(worker.trust_profile, verdict, flags)
+    const newBaseline= wasActive
+      ? recalcBaseline(worker.baseline_income, day, actualInc)
       : worker.baseline_income
-    const newPremium  = recalculatePremium(
-      { ...worker, baseline_income: newBaseline },
-      newBaseline
-    )
-    const newAdjCov   = recalcAdjustedCoverage(worker, newTrust.trust_score)
-    const newSession  = refreshSession(worker.current_session, actualInc, disruption.type)
+    const newPremium = recalcPremium({ ...worker, baseline_income: newBaseline }, newBaseline)
+    const newAdjCov  = recalcAdjCov(worker, newTrust.trust_score)
 
-    workerMap[worker.worker_id] = {
+    wmap[worker.worker_id] = {
       ...worker,
       baseline_income: newBaseline,
       trust_profile:   newTrust,
       insurance_plan:  { ...worker.insurance_plan, adjusted_coverage: newAdjCov },
       premium:         newPremium,
-      current_session: newSession,
+      current_session: {
+        ...worker.current_session,
+        status:                    'active',
+        active_minutes_so_far:     Math.floor(Math.random() * 60 + 30),
+        idle_ratio_so_far:         +(Math.random() * 0.08 + 0.04).toFixed(2),
+        participation_score_so_far:+(Math.random() * 0.10 + 0.85).toFixed(2),
+        pre_disruption_confirmed:  true,
+        last_updated:              now,
+      },
     }
 
     updates.push({
@@ -145,20 +167,27 @@ function updateDatasetAfterDisruption(validationResults, disruption) {
       trust_before:   prevTrust,
       trust_after:    newTrust.trust_score,
       trust_delta:    +(newTrust.trust_score - prevTrust).toFixed(3),
-      baseline_before:prevBaseline,
+      baseline_before:prevBase,
       baseline_after: newBaseline[day],
-      premium_before: prevPremium,
+      premium_before: prevPrem,
       premium_after:  newPremium.weekly_premium,
     })
   }
 
-  dataset.workers = Object.values(workerMap)
+  // Write updated workers back
+  ds.workers = Object.values(wmap)
+
+  // Update store aggregates (after workers are updated in wmap)
+  updateStoreAggregates(ds, disruption.storeId, disruption.severity, now)
+  if (ds.stores) {
+    const sIdx = ds.stores.findIndex(s => s.store_id === disruption.storeId)
+    if (sIdx !== -1) ds.stores[sIdx].last_disruption_type = disruption.type
+  }
 
   try {
-    saveDataset(dataset)
-    console.log(`[dataset] saved ${updates.length} updates`)
-  } catch (e) {
-    console.error('[dataset] save failed:', e.message)
+    save(ds)
+    console.log(`[dataset] saved — ${updates.length} workers, store ${disruption.storeId} updated`)
+  } catch(e) {
     return { updated_count: 0, error: e.message }
   }
 
@@ -170,7 +199,8 @@ function updateDatasetAfterDisruption(validationResults, disruption) {
     updated_count:   updates.length,
     avg_trust_delta: avgDelta,
     updates,
-    updated_at:      new Date().toISOString(),
+    store_updated:   disruption.storeId,
+    updated_at:      now,
   }
 }
 

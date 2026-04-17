@@ -230,7 +230,7 @@
       "zone": "Koramangala",
       "lat": 12.9352,
       "lng": 77.6245,
-      "reliability": 0.78,
+      "reliability": 0.689,
       "avg_downtime_hrs": 3,
       "city": "Bangalore",
       "risk_profile": "moderate_rain_aqi",
@@ -245,7 +245,13 @@
         "WK-058",
         "WK-059",
         "WK-060"
-      ]
+      ],
+      "avg_trust": 0.712,
+      "avg_risk": 0.466,
+      "weekly_premium_pool": 560.59,
+      "disruption_count": 2,
+      "last_disruption_at": "2026-04-17T04:13:35.640Z",
+      "last_disruption_type": "heavy_rainfall"
     },
     {
       "store_id": "DS-BLR-02",
@@ -276,7 +282,7 @@
       "zone": "Whitefield",
       "lat": 12.9698,
       "lng": 77.75,
-      "reliability": 0.6,
+      "reliability": 0.585,
       "avg_downtime_hrs": 6,
       "city": "Bangalore",
       "risk_profile": "moderate_rain_aqi",
@@ -291,7 +297,13 @@
         "WK-078",
         "WK-079",
         "WK-080"
-      ]
+      ],
+      "avg_trust": 0.69,
+      "avg_risk": 0.524,
+      "weekly_premium_pool": 586.32,
+      "disruption_count": 1,
+      "last_disruption_at": "2026-04-16T16:24:28.059Z",
+      "last_disruption_type": "store_downtime"
     },
     {
       "store_id": "DS-BLR-04",
@@ -469,10 +481,10 @@
       "baseline_income": {
         "monday": 339,
         "tuesday": 297,
-        "wednesday": 316,
+        "wednesday": 304,
         "thursday": 348,
         "friday": 358,
-        "saturday": 367,
+        "saturday": 395,
         "sunday": 393
       },
       "risk_profile": {
@@ -484,15 +496,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.241,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.221,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2072.57,
-        "expected_loss": 1396.91,
-        "weekly_premium": 1676.29
+        "weekly_baseline": 2086.29,
+        "expected_loss": 5.25,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.43,
@@ -501,7 +516,7 @@
         "historical_deviation_avg": 0.544,
         "anomaly_flag_count": 7,
         "profile_type": "low",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -512,13 +527,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 33,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.91,
+        "active_minutes_so_far": 58,
+        "idle_ratio_so_far": 0.12,
+        "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 257.4,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-001",
+        "password": "revathi@123"
       }
     },
     {
@@ -534,10 +552,10 @@
       "baseline_income": {
         "monday": 366,
         "tuesday": 334,
-        "wednesday": 342,
+        "wednesday": 331,
         "thursday": 376,
         "friday": 368,
-        "saturday": 400,
+        "saturday": 428,
         "sunday": 422
       },
       "risk_profile": {
@@ -549,15 +567,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.659,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.577,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2235.43,
-        "expected_loss": 1667.63,
-        "weekly_premium": 2001.16
+        "weekly_baseline": 2250,
+        "expected_loss": 6.86,
+        "weekly_premium": 65.18,
+        "annual_premium": 3389.36,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.89,
@@ -566,7 +587,7 @@
         "historical_deviation_avg": 0.127,
         "anomaly_flag_count": 1,
         "profile_type": "good",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -577,13 +598,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 30,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.89,
+        "active_minutes_so_far": 48,
+        "idle_ratio_so_far": 0.12,
+        "participation_score_so_far": 0.91,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 289.46,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-002",
+        "password": "selvam@123"
       }
     },
     {
@@ -599,10 +623,10 @@
       "baseline_income": {
         "monday": 405,
         "tuesday": 386,
-        "wednesday": 392,
+        "wednesday": 381,
         "thursday": 413,
         "friday": 422,
-        "saturday": 455,
+        "saturday": 485,
         "sunday": 497
       },
       "risk_profile": {
@@ -614,15 +638,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.681,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.596,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2545.71,
-        "expected_loss": 1894.01,
-        "weekly_premium": 2272.81
+        "weekly_baseline": 2562,
+        "expected_loss": 6.86,
+        "weekly_premium": 65.13,
+        "annual_premium": 3386.76,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.92,
@@ -631,7 +658,7 @@
         "historical_deviation_avg": 0.098,
         "anomaly_flag_count": 1,
         "profile_type": "excellent",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -642,13 +669,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 41,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.86,
+        "active_minutes_so_far": 64,
+        "idle_ratio_so_far": 0.09,
+        "participation_score_so_far": 0.88,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 334.54,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-003",
+        "password": "arun@123"
       }
     },
     {
@@ -679,15 +709,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.211,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.194,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2381.14,
-        "expected_loss": 1723.95,
-        "weekly_premium": 2068.74
+        "expected_loss": 5.35,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -696,7 +729,7 @@
         "historical_deviation_avg": 0.58,
         "anomaly_flag_count": 10,
         "profile_type": "low",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -707,13 +740,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 30,
-        "idle_ratio_so_far": 0.07,
-        "participation_score_so_far": 0.85,
+        "active_minutes_so_far": 51,
+        "idle_ratio_so_far": 0.06,
+        "participation_score_so_far": 0.86,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 316.37,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-004",
+        "password": "vikram@123"
       }
     },
     {
@@ -729,10 +765,10 @@
       "baseline_income": {
         "monday": 418,
         "tuesday": 409,
-        "wednesday": 392,
+        "wednesday": 384,
         "thursday": 428,
         "friday": 457,
-        "saturday": 492,
+        "saturday": 527,
         "sunday": 471
       },
       "risk_profile": {
@@ -744,15 +780,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.573,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.501,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2628.86,
-        "expected_loss": 1829.69,
-        "weekly_premium": 2195.63
+        "weekly_baseline": 2652,
+        "expected_loss": 6.74,
+        "weekly_premium": 63.99,
+        "annual_premium": 3327.48,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.77,
@@ -761,7 +800,7 @@
         "historical_deviation_avg": 0.234,
         "anomaly_flag_count": 3,
         "profile_type": "good",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -772,13 +811,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 69,
-        "idle_ratio_so_far": 0.08,
-        "participation_score_so_far": 0.94,
+        "active_minutes_so_far": 79,
+        "idle_ratio_so_far": 0.04,
+        "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 354.43,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-005",
+        "password": "bhavana@123"
       }
     },
     {
@@ -794,10 +836,10 @@
       "baseline_income": {
         "monday": 283,
         "tuesday": 257,
-        "wednesday": 261,
+        "wednesday": 253,
         "thursday": 285,
         "friday": 281,
-        "saturday": 309,
+        "saturday": 331,
         "sunday": 318
       },
       "risk_profile": {
@@ -809,15 +851,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.36,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.33,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1709.14,
-        "expected_loss": 1322.87,
-        "weekly_premium": 1587.44
+        "weekly_baseline": 1721.14,
+        "expected_loss": 5.45,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -826,7 +871,7 @@
         "historical_deviation_avg": 0.33,
         "anomaly_flag_count": 6,
         "profile_type": "moderate",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -837,13 +882,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 71,
-        "idle_ratio_so_far": 0.09,
-        "participation_score_so_far": 0.85,
+        "active_minutes_so_far": 37,
+        "idle_ratio_so_far": 0.07,
+        "participation_score_so_far": 0.88,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 222.77,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-006",
+        "password": "bharathi@123"
       }
     },
     {
@@ -874,15 +922,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.112,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.103,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1886.57,
-        "expected_loss": 1264,
-        "weekly_premium": 1516.8
+        "expected_loss": 5.24,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -891,7 +942,7 @@
         "historical_deviation_avg": 0.75,
         "anomaly_flag_count": 15,
         "profile_type": "critical",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -902,13 +953,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 63,
-        "idle_ratio_so_far": 0.12,
+        "active_minutes_so_far": 54,
+        "idle_ratio_so_far": 0.05,
         "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 229.63,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-007",
+        "password": "anbu@123"
       }
     },
     {
@@ -924,10 +978,10 @@
       "baseline_income": {
         "monday": 273,
         "tuesday": 261,
-        "wednesday": 274,
+        "wednesday": 264,
         "thursday": 280,
         "friday": 309,
-        "saturday": 316,
+        "saturday": 338,
         "sunday": 317
       },
       "risk_profile": {
@@ -939,15 +993,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.629,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.55,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1740,
-        "expected_loss": 1301.52,
-        "weekly_premium": 1561.82
+        "weekly_baseline": 1750.29,
+        "expected_loss": 6.87,
+        "weekly_premium": 65.22,
+        "annual_premium": 3391.44,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.85,
@@ -956,7 +1013,7 @@
         "historical_deviation_avg": 0.166,
         "anomaly_flag_count": 2,
         "profile_type": "good",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -967,13 +1024,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 57,
-        "idle_ratio_so_far": 0.08,
-        "participation_score_so_far": 0.93,
+        "active_minutes_so_far": 89,
+        "idle_ratio_so_far": 0.04,
+        "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 226.2,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-008",
+        "password": "selvam@123"
       }
     },
     {
@@ -989,10 +1049,10 @@
       "baseline_income": {
         "monday": 320,
         "tuesday": 293,
-        "wednesday": 323,
+        "wednesday": 309,
         "thursday": 341,
         "friday": 334,
-        "saturday": 379,
+        "saturday": 410,
         "sunday": 368
       },
       "risk_profile": {
@@ -1004,15 +1064,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.734,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.642,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2021.14,
-        "expected_loss": 1301.61,
-        "weekly_premium": 1561.93
+        "weekly_baseline": 2035.71,
+        "expected_loss": 6.61,
+        "weekly_premium": 62.76,
+        "annual_premium": 3263.52,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.98,
@@ -1021,7 +1084,7 @@
         "historical_deviation_avg": 0.039,
         "anomaly_flag_count": 0,
         "profile_type": "excellent",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -1032,13 +1095,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 43,
-        "idle_ratio_so_far": 0.11,
-        "participation_score_so_far": 0.95,
+        "active_minutes_so_far": 68,
+        "idle_ratio_so_far": 0.1,
+        "participation_score_so_far": 0.91,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 253.97,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-009",
+        "password": "padma@123"
       }
     },
     {
@@ -1054,10 +1120,10 @@
       "baseline_income": {
         "monday": 354,
         "tuesday": 326,
-        "wednesday": 320,
+        "wednesday": 313,
         "thursday": 333,
         "friday": 359,
-        "saturday": 385,
+        "saturday": 410,
         "sunday": 394
       },
       "risk_profile": {
@@ -1069,15 +1135,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.88,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.748,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2118,
-        "expected_loss": 1571.56,
-        "weekly_premium": 1885.87
+        "weekly_baseline": 2133.43,
+        "expected_loss": 8.32,
+        "weekly_premium": 102.74,
+        "annual_premium": 5342.48,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.95,
@@ -1086,7 +1155,7 @@
         "historical_deviation_avg": 0.069,
         "anomaly_flag_count": 0,
         "profile_type": "excellent",
-        "last_updated": "2026-04-04"
+        "last_updated": "2026-04-15"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -1097,13 +1166,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 68,
-        "idle_ratio_so_far": 0.07,
-        "participation_score_so_far": 0.94,
+        "active_minutes_so_far": 77,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 282.52,
-        "last_disruption_type": "heavy_rainfall",
-        "last_updated": "2026-04-04T15:27:40.495Z"
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-15T01:17:04.607Z"
+      },
+      "auth": {
+        "username": "WK-010",
+        "password": "fatima@123"
       }
     },
     {
@@ -1134,15 +1206,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.676,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.592,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1716.84,
-        "expected_loss": 1047.27,
-        "weekly_premium": 1256.72
+        "weekly_baseline": 1716.86,
+        "expected_loss": 6.52,
+        "weekly_premium": 61.95,
+        "annual_premium": 3221.4,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -1166,6 +1241,10 @@
         "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-011",
+        "password": "saranya@123"
       }
     },
     {
@@ -1196,15 +1275,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.898,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.763,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1817.16,
-        "expected_loss": 1181.15,
-        "weekly_premium": 1417.38
+        "weekly_baseline": 1817.14,
+        "expected_loss": 8.04,
+        "weekly_premium": 90.86,
+        "annual_premium": 4724.72,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -1228,6 +1310,10 @@
         "participation_score_so_far": 0.97,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-012",
+        "password": "bharathi@123"
       }
     },
     {
@@ -1258,15 +1344,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.421,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.386,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2660.58,
-        "expected_loss": 1734.7,
-        "weekly_premium": 2081.64
+        "weekly_baseline": 2660.57,
+        "expected_loss": 5.21,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -1290,6 +1379,10 @@
         "participation_score_so_far": 0.72,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-013",
+        "password": "meena@123"
       }
     },
     {
@@ -1320,15 +1413,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.364,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.334,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1406.58,
-        "expected_loss": 933.97,
-        "weekly_premium": 1120.76
+        "weekly_baseline": 1406.57,
+        "expected_loss": 5.23,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -1352,6 +1448,10 @@
         "participation_score_so_far": 0.58,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-014",
+        "password": "rekha@123"
       }
     },
     {
@@ -1382,15 +1482,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.295,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.27,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2346.84,
-        "expected_loss": 1309.54,
-        "weekly_premium": 1571.45
+        "weekly_baseline": 2346.86,
+        "expected_loss": 5.02,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -1414,6 +1517,10 @@
         "participation_score_so_far": 0.49,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-015",
+        "password": "archana@123"
       }
     },
     {
@@ -1444,15 +1551,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.622,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.545,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1763.16,
-        "expected_loss": 1107.26,
-        "weekly_premium": 1328.71
+        "weekly_baseline": 1763.14,
+        "expected_loss": 6.57,
+        "weekly_premium": 62.38,
+        "annual_premium": 3243.76,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -1476,6 +1586,10 @@
         "participation_score_so_far": 0.79,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-016",
+        "password": "venkat@123"
       }
     },
     {
@@ -1506,15 +1620,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.103,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1502.58,
-        "expected_loss": 907.56,
-        "weekly_premium": 1089.07
+        "weekly_baseline": 1502.57,
+        "expected_loss": 5.11,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -1538,6 +1655,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-017",
+        "password": "lakshmi@123"
       }
     },
     {
@@ -1568,15 +1689,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.213,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.195,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2722.26,
-        "expected_loss": 1813.03,
-        "weekly_premium": 2175.64
+        "weekly_baseline": 2722.29,
+        "expected_loss": 5.23,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -1600,6 +1724,10 @@
         "participation_score_so_far": 0.34,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-018",
+        "password": "ganesh@123"
       }
     },
     {
@@ -1630,15 +1758,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.651,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.57,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 3024,
-        "expected_loss": 1935.36,
-        "weekly_premium": 2322.43
+        "expected_loss": 6.6,
+        "weekly_premium": 62.66,
+        "annual_premium": 3258.32,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -1662,6 +1793,10 @@
         "participation_score_so_far": 0.82,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-019",
+        "password": "pooja@123"
       }
     },
     {
@@ -1692,15 +1827,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.702,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.614,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2210.58,
-        "expected_loss": 1255.61,
-        "weekly_premium": 1506.73
+        "weekly_baseline": 2210.57,
+        "expected_loss": 6.42,
+        "weekly_premium": 60.95,
+        "annual_premium": 3169.4,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -1724,6 +1862,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-020",
+        "password": "rahul@123"
       }
     },
     {
@@ -1754,15 +1896,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.895,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.76,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1911.42,
-        "expected_loss": 1303.59,
-        "weekly_premium": 1564.31
+        "weekly_baseline": 1911.43,
+        "expected_loss": 8.14,
+        "weekly_premium": 95.57,
+        "annual_premium": 4969.64,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -1786,6 +1931,10 @@
         "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-021",
+        "password": "swathi@123"
       }
     },
     {
@@ -1816,15 +1965,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.868,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.737,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1651.74,
-        "expected_loss": 1109.97,
-        "weekly_premium": 1331.96
+        "weekly_baseline": 1651.71,
+        "expected_loss": 8.11,
+        "weekly_premium": 82.59,
+        "annual_premium": 4294.68,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -1848,6 +2000,10 @@
         "participation_score_so_far": 0.91,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-022",
+        "password": "bhavana@123"
       }
     },
     {
@@ -1878,15 +2034,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.292,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.268,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1419.42,
-        "expected_loss": 902.75,
-        "weekly_premium": 1083.3
+        "weekly_baseline": 1419.43,
+        "expected_loss": 5.17,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -1910,6 +2069,10 @@
         "participation_score_so_far": 0.46,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-023",
+        "password": "archana@123"
       }
     },
     {
@@ -1940,15 +2103,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.486,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.425,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1885.74,
-        "expected_loss": 1237.05,
-        "weekly_premium": 1484.46
+        "weekly_baseline": 1885.71,
+        "expected_loss": 6.64,
+        "weekly_premium": 63.04,
+        "annual_premium": 3278.08,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -1972,6 +2138,10 @@
         "participation_score_so_far": 0.61,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-024",
+        "password": "rajesh@123"
       }
     },
     {
@@ -2002,15 +2172,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.674,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.59,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2580.84,
-        "expected_loss": 1636.25,
-        "weekly_premium": 1963.5
+        "weekly_baseline": 2580.86,
+        "expected_loss": 6.58,
+        "weekly_premium": 62.52,
+        "annual_premium": 3251.04,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -2034,6 +2207,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-025",
+        "password": "rahul@123"
       }
     },
     {
@@ -2064,15 +2241,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.651,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.569,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2537.16,
-        "expected_loss": 1649.15,
-        "weekly_premium": 1978.98
+        "weekly_baseline": 2537.14,
+        "expected_loss": 6.62,
+        "weekly_premium": 62.9,
+        "annual_premium": 3270.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -2096,6 +2276,10 @@
         "participation_score_so_far": 0.84,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-026",
+        "password": "rajesh@123"
       }
     },
     {
@@ -2126,15 +2310,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.419,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.385,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2612.58,
-        "expected_loss": 1771.33,
-        "weekly_premium": 2125.6
+        "weekly_baseline": 2612.57,
+        "expected_loss": 5.26,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -2158,6 +2345,10 @@
         "participation_score_so_far": 0.72,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-027",
+        "password": "harish@123"
       }
     },
     {
@@ -2188,15 +2379,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1574.58,
-        "expected_loss": 913.26,
-        "weekly_premium": 1095.91
+        "weekly_baseline": 1574.57,
+        "expected_loss": 5.06,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -2220,6 +2414,10 @@
         "participation_score_so_far": 0.14,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-028",
+        "password": "ganesh@123"
       }
     },
     {
@@ -2250,15 +2448,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.213,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.196,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1758,
-        "expected_loss": 1121.6,
-        "weekly_premium": 1345.92
+        "expected_loss": 5.18,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -2282,6 +2483,10 @@
         "participation_score_so_far": 0.33,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-029",
+        "password": "nithya@123"
       }
     },
     {
@@ -2312,15 +2517,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.621,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.543,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2713.74,
-        "expected_loss": 1753.08,
-        "weekly_premium": 2103.7
+        "weekly_baseline": 2713.71,
+        "expected_loss": 6.61,
+        "weekly_premium": 62.8,
+        "annual_premium": 3265.6,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -2344,6 +2552,10 @@
         "participation_score_so_far": 0.81,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-030",
+        "password": "sindhu@123"
       }
     },
     {
@@ -2374,15 +2586,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.56,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.49,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2443.74,
-        "expected_loss": 1612.87,
-        "weekly_premium": 1935.44
+        "weekly_baseline": 2443.71,
+        "expected_loss": 6.65,
+        "weekly_premium": 63.14,
+        "annual_premium": 3283.28,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -2406,6 +2621,10 @@
         "participation_score_so_far": 0.73,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-031",
+        "password": "selvam@123"
       }
     },
     {
@@ -2436,15 +2655,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.897,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.763,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2902.26,
-        "expected_loss": 1892.27,
-        "weekly_premium": 2270.72
+        "weekly_baseline": 2902.29,
+        "expected_loss": 8.05,
+        "weekly_premium": 99.37,
+        "annual_premium": 5167.24,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -2468,6 +2690,10 @@
         "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-032",
+        "password": "manoj@123"
       }
     },
     {
@@ -2498,15 +2724,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.867,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.737,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1770.84,
-        "expected_loss": 1193.55,
-        "weekly_premium": 1432.26
+        "weekly_baseline": 1770.86,
+        "expected_loss": 8.11,
+        "weekly_premium": 88.54,
+        "annual_premium": 4604.08,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -2530,6 +2759,10 @@
         "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-033",
+        "password": "anitha@123"
       }
     },
     {
@@ -2560,15 +2793,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.507,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.465,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1542.84,
-        "expected_loss": 934.96,
-        "weekly_premium": 1121.95
+        "weekly_baseline": 1542.86,
+        "expected_loss": 5.12,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -2592,6 +2828,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-034",
+        "password": "meena@123"
       }
     },
     {
@@ -2622,15 +2862,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.112,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.103,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1536,
-        "expected_loss": 989.18,
-        "weekly_premium": 1187.02
+        "expected_loss": 5.19,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -2654,6 +2897,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-035",
+        "password": "imran@123"
       }
     },
     {
@@ -2684,15 +2931,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.364,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.334,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2003.16,
-        "expected_loss": 1314.07,
-        "weekly_premium": 1576.88
+        "weekly_baseline": 2003.14,
+        "expected_loss": 5.21,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -2716,6 +2966,10 @@
         "participation_score_so_far": 0.61,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-036",
+        "password": "anitha@123"
       }
     },
     {
@@ -2746,15 +3000,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.651,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.57,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2005.74,
-        "expected_loss": 1299.72,
-        "weekly_premium": 1559.66
+        "weekly_baseline": 2005.71,
+        "expected_loss": 6.62,
+        "weekly_premium": 62.85,
+        "annual_premium": 3268.2,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -2778,6 +3035,10 @@
         "participation_score_so_far": 0.85,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-037",
+        "password": "bharathi@123"
       }
     },
     {
@@ -2808,15 +3069,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.292,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.267,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2944.26,
-        "expected_loss": 1931.43,
-        "weekly_premium": 2317.72
+        "weekly_baseline": 2944.29,
+        "expected_loss": 5.21,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -2840,6 +3104,10 @@
         "participation_score_so_far": 0.45,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-038",
+        "password": "naveen@123"
       }
     },
     {
@@ -2870,15 +3138,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.623,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.545,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1973.16,
-        "expected_loss": 1231.25,
-        "weekly_premium": 1477.5
+        "weekly_baseline": 1973.14,
+        "expected_loss": 6.56,
+        "weekly_premium": 62.28,
+        "annual_premium": 3238.56,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -2902,6 +3173,10 @@
         "participation_score_so_far": 0.79,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-039",
+        "password": "imran@123"
       }
     },
     {
@@ -2932,15 +3207,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.215,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.197,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2208,
-        "expected_loss": 1285.06,
-        "weekly_premium": 1542.07
+        "expected_loss": 5.07,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -2964,6 +3242,10 @@
         "participation_score_so_far": 0.34,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-040",
+        "password": "rekha@123"
       }
     },
     {
@@ -2994,15 +3276,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.486,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.445,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2122.26,
-        "expected_loss": 1468.6,
-        "weekly_premium": 1762.32
+        "weekly_baseline": 2122.29,
+        "expected_loss": 5.28,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -3026,6 +3311,10 @@
         "participation_score_so_far": 0.84,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-041",
+        "password": "anitha@123"
       }
     },
     {
@@ -3056,15 +3345,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.418,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.383,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1605.42,
-        "expected_loss": 1146.27,
-        "weekly_premium": 1375.52
+        "weekly_baseline": 1605.43,
+        "expected_loss": 5.33,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -3088,6 +3380,10 @@
         "participation_score_so_far": 0.7,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-042",
+        "password": "lakshmi@123"
       }
     },
     {
@@ -3118,15 +3414,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.669,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.585,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2416.26,
-        "expected_loss": 1710.71,
-        "weekly_premium": 2052.85
+        "weekly_baseline": 2416.29,
+        "expected_loss": 6.77,
+        "weekly_premium": 64.28,
+        "annual_premium": 3342.56,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -3150,6 +3449,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-043",
+        "password": "arjun@123"
       }
     },
     {
@@ -3180,15 +3483,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.87,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.739,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1707.42,
-        "expected_loss": 1109.82,
-        "weekly_premium": 1331.78
+        "weekly_baseline": 1707.43,
+        "expected_loss": 8.04,
+        "weekly_premium": 85.37,
+        "annual_premium": 4439.24,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -3212,6 +3518,10 @@
         "participation_score_so_far": 0.92,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-044",
+        "password": "padma@123"
       }
     },
     {
@@ -3242,15 +3552,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.111,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.102,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2970,
-        "expected_loss": 2162.16,
-        "weekly_premium": 2594.59
+        "expected_loss": 5.36,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -3274,6 +3587,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-045",
+        "password": "selvam@123"
       }
     },
     {
@@ -3304,15 +3621,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.484,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.424,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2734.26,
-        "expected_loss": 1892.11,
-        "weekly_premium": 2270.53
+        "weekly_baseline": 2734.29,
+        "expected_loss": 6.73,
+        "weekly_premium": 63.9,
+        "annual_premium": 3322.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -3336,6 +3656,10 @@
         "participation_score_so_far": 0.59,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-046",
+        "password": "priya@123"
       }
     },
     {
@@ -3366,15 +3690,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.533,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.489,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1898.58,
-        "expected_loss": 1404.95,
-        "weekly_premium": 1685.94
+        "weekly_baseline": 1898.57,
+        "expected_loss": 5.38,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -3398,6 +3725,10 @@
         "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-047",
+        "password": "bharathi@123"
       }
     },
     {
@@ -3428,15 +3759,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.21,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.193,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2634,
-        "expected_loss": 2033.45,
-        "weekly_premium": 2440.14
+        "expected_loss": 5.44,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -3460,6 +3794,10 @@
         "participation_score_so_far": 0.31,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-048",
+        "password": "dinesh@123"
       }
     },
     {
@@ -3490,15 +3828,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.29,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.266,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1492.26,
-        "expected_loss": 1050.55,
-        "weekly_premium": 1260.66
+        "weekly_baseline": 1492.29,
+        "expected_loss": 5.31,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -3522,6 +3863,10 @@
         "participation_score_so_far": 0.44,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-049",
+        "password": "asha@123"
       }
     },
     {
@@ -3552,15 +3897,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.617,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.54,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1657.74,
-        "expected_loss": 1167.05,
-        "weekly_premium": 1400.46
+        "weekly_baseline": 1657.71,
+        "expected_loss": 6.76,
+        "weekly_premium": 64.18,
+        "annual_premium": 3337.36,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -3584,6 +3932,10 @@
         "participation_score_so_far": 0.8,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-050",
+        "password": "imran@123"
       }
     },
     {
@@ -3600,8 +3952,8 @@
         "monday": 507,
         "tuesday": 439,
         "wednesday": 463,
-        "thursday": 474,
-        "friday": 534,
+        "thursday": 455,
+        "friday": 497,
         "saturday": 573,
         "sunday": 560
       },
@@ -3614,23 +3966,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.686,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.627,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3042.84,
-        "expected_loss": 1417.96,
-        "weekly_premium": 1701.55
+        "weekly_baseline": 2994.86,
+        "expected_loss": 6.16,
+        "weekly_premium": 58.53,
+        "annual_premium": 3043.64,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.9,
-        "participation_consistency": 0.91,
-        "movement_consistency": 0.89,
-        "historical_deviation_avg": 0.1,
+        "trust_score": 0.94,
+        "participation_consistency": 0.95,
+        "movement_consistency": 0.93,
+        "historical_deviation_avg": 0.096,
         "anomaly_flag_count": 1,
-        "profile_type": "good"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3641,11 +3996,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 47,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.88,
+        "active_minutes_so_far": 80,
+        "idle_ratio_so_far": 0.09,
+        "participation_score_so_far": 0.91,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-051",
+        "password": "nandini@123"
       }
     },
     {
@@ -3663,7 +4023,7 @@
         "tuesday": 480,
         "wednesday": 469,
         "thursday": 515,
-        "friday": 510,
+        "friday": 485,
         "saturday": 597,
         "sunday": 560
       },
@@ -3676,23 +4036,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.114,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.052,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3117.42,
-        "expected_loss": 1533.77,
-        "weekly_premium": 1840.52
+        "weekly_baseline": 3096,
+        "expected_loss": 4.89,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
-        "trust_score": 0.2,
-        "participation_consistency": 0.17,
-        "movement_consistency": 0.22,
-        "historical_deviation_avg": 0.75,
-        "anomaly_flag_count": 14,
-        "profile_type": "critical"
+        "trust_score": 0.1,
+        "participation_consistency": 0.085,
+        "movement_consistency": 0.11,
+        "historical_deviation_avg": 1.5,
+        "anomaly_flag_count": 16,
+        "profile_type": "critical",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3700,14 +4063,19 @@
         "shift_start": "09:00",
         "shift_end": "18:00",
         "total_shift_minutes": 540,
-        "status": "inactive",
+        "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 20,
-        "idle_ratio_so_far": 0.3,
-        "participation_score_so_far": 0.16,
-        "pre_disruption_confirmed": false,
-        "earnings_before_disruption": 0
+        "active_minutes_so_far": 79,
+        "idle_ratio_so_far": 0.12,
+        "participation_score_so_far": 0.89,
+        "pre_disruption_confirmed": true,
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-052",
+        "password": "ganesh@123"
       }
     },
     {
@@ -3725,7 +4093,7 @@
         "tuesday": 235,
         "wednesday": 262,
         "thursday": 270,
-        "friday": 265,
+        "friday": 250,
         "saturday": 322,
         "sunday": 301
       },
@@ -3738,23 +4106,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.216,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.178,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1631.16,
-        "expected_loss": 825.37,
-        "weekly_premium": 990.44
+        "weekly_baseline": 1618.29,
+        "expected_loss": 4.92,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
-        "trust_score": 0.38,
-        "participation_consistency": 0.35,
-        "movement_consistency": 0.4,
-        "historical_deviation_avg": 0.58,
-        "anomaly_flag_count": 9,
-        "profile_type": "low"
+        "trust_score": 0.34,
+        "participation_consistency": 0.313,
+        "movement_consistency": 0.358,
+        "historical_deviation_avg": 0.648,
+        "anomaly_flag_count": 10,
+        "profile_type": "critical",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3762,14 +4133,19 @@
         "shift_start": "09:00",
         "shift_end": "18:00",
         "total_shift_minutes": 540,
-        "status": "inactive",
+        "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 19,
+        "active_minutes_so_far": 87,
         "idle_ratio_so_far": 0.1,
-        "participation_score_so_far": 0.3,
-        "pre_disruption_confirmed": false,
-        "earnings_before_disruption": 0
+        "participation_score_so_far": 0.88,
+        "pre_disruption_confirmed": true,
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-053",
+        "password": "kavitha@123"
       }
     },
     {
@@ -3786,8 +4162,8 @@
         "monday": 253,
         "tuesday": 239,
         "wednesday": 260,
-        "thursday": 268,
-        "friday": 263,
+        "thursday": 256,
+        "friday": 249,
         "saturday": 308,
         "sunday": 291
       },
@@ -3800,23 +4176,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.666,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.61,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1613.16,
-        "expected_loss": 683.98,
-        "weekly_premium": 820.78
+        "weekly_baseline": 1590.86,
+        "expected_loss": 6.06,
+        "weekly_premium": 57.53,
+        "annual_premium": 2991.8,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.87,
-        "participation_consistency": 0.86,
-        "movement_consistency": 0.88,
-        "historical_deviation_avg": 0.13,
+        "trust_score": 0.91,
+        "participation_consistency": 0.9,
+        "movement_consistency": 0.92,
+        "historical_deviation_avg": 0.124,
         "anomaly_flag_count": 1,
-        "profile_type": "good"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3827,11 +4206,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 38,
-        "idle_ratio_so_far": 0.07,
-        "participation_score_so_far": 0.84,
+        "active_minutes_so_far": 73,
+        "idle_ratio_so_far": 0.11,
+        "participation_score_so_far": 0.88,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-054",
+        "password": "vijay@123"
       }
     },
     {
@@ -3848,8 +4232,8 @@
         "monday": 506,
         "tuesday": 482,
         "wednesday": 472,
-        "thursday": 547,
-        "friday": 561,
+        "thursday": 521,
+        "friday": 526,
         "saturday": 615,
         "sunday": 570
       },
@@ -3862,23 +4246,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.709,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.647,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3216.84,
-        "expected_loss": 1505.48,
-        "weekly_premium": 1806.58
+        "weekly_baseline": 3164.57,
+        "expected_loss": 6.17,
+        "weekly_premium": 58.58,
+        "annual_premium": 3046.1,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.93,
-        "participation_consistency": 0.94,
-        "movement_consistency": 0.92,
-        "historical_deviation_avg": 0.07,
+        "trust_score": 0.97,
+        "participation_consistency": 0.98,
+        "movement_consistency": 0.96,
+        "historical_deviation_avg": 0.068,
         "anomaly_flag_count": 0,
-        "profile_type": "excellent"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3889,11 +4276,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 40,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.94,
+        "active_minutes_so_far": 81,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.91,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-055",
+        "password": "revathi@123"
       }
     },
     {
@@ -3910,8 +4302,8 @@
         "monday": 467,
         "tuesday": 411,
         "wednesday": 425,
-        "thursday": 454,
-        "friday": 449,
+        "thursday": 434,
+        "friday": 425,
         "saturday": 545,
         "sunday": 530
       },
@@ -3924,23 +4316,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.296,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.271,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2812.26,
-        "expected_loss": 1439.88,
-        "weekly_premium": 1727.86
+        "weekly_baseline": 2774.57,
+        "expected_loss": 4.93,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
         "trust_score": 0.52,
         "participation_consistency": 0.49,
         "movement_consistency": 0.54,
         "historical_deviation_avg": 0.45,
-        "anomaly_flag_count": 6,
-        "profile_type": "low"
+        "anomaly_flag_count": 8,
+        "profile_type": "low",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -3951,11 +4346,16 @@
         "status": "active",
         "location_in_zone": false,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 59,
-        "idle_ratio_so_far": 0.33,
-        "participation_score_so_far": 0.47,
-        "pre_disruption_confirmed": false,
-        "earnings_before_disruption": 0
+        "active_minutes_so_far": 38,
+        "idle_ratio_so_far": 0.06,
+        "participation_score_so_far": 0.89,
+        "pre_disruption_confirmed": true,
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-056",
+        "password": "saranya@123"
       }
     },
     {
@@ -3972,8 +4372,8 @@
         "monday": 461,
         "tuesday": 413,
         "wednesday": 422,
-        "thursday": 427,
-        "friday": 444,
+        "thursday": 413,
+        "friday": 421,
         "saturday": 526,
         "sunday": 520
       },
@@ -3986,23 +4386,26 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.918,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.805,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2754,
-        "expected_loss": 1206.25,
-        "weekly_premium": 1447.5
+        "weekly_baseline": 2722.29,
+        "expected_loss": 7.4,
+        "weekly_premium": 91.35,
+        "annual_premium": 4750.04,
+        "coverage_tier": "pro"
       },
       "trust_profile": {
-        "trust_score": 0.96,
-        "participation_consistency": 0.97,
-        "movement_consistency": 0.95,
-        "historical_deviation_avg": 0.04,
+        "trust_score": 0.99,
+        "participation_consistency": 0.99,
+        "movement_consistency": 0.98,
+        "historical_deviation_avg": 0.039,
         "anomaly_flag_count": 0,
-        "profile_type": "excellent"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4013,11 +4416,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 37,
-        "idle_ratio_so_far": 0.08,
-        "participation_score_so_far": 0.94,
+        "active_minutes_so_far": 73,
+        "idle_ratio_so_far": 0.07,
+        "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-057",
+        "password": "ganesh@123"
       }
     },
     {
@@ -4034,8 +4442,8 @@
         "monday": 289,
         "tuesday": 256,
         "wednesday": 261,
-        "thursday": 281,
-        "friday": 281,
+        "thursday": 269,
+        "friday": 266,
         "saturday": 336,
         "sunday": 309
       },
@@ -4048,23 +4456,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.571,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.526,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1725.42,
-        "expected_loss": 838.55,
-        "weekly_premium": 1006.26
+        "weekly_baseline": 1702.29,
+        "expected_loss": 6.21,
+        "weekly_premium": 59.01,
+        "annual_premium": 3068.32,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.75,
-        "participation_consistency": 0.73,
-        "movement_consistency": 0.76,
-        "historical_deviation_avg": 0.24,
+        "trust_score": 0.79,
+        "participation_consistency": 0.768,
+        "movement_consistency": 0.8,
+        "historical_deviation_avg": 0.228,
         "anomaly_flag_count": 3,
-        "profile_type": "moderate"
+        "profile_type": "good",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4075,11 +4486,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 77,
-        "idle_ratio_so_far": 0.16,
-        "participation_score_so_far": 0.7,
+        "active_minutes_so_far": 89,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-058",
+        "password": "harish@123"
       }
     },
     {
@@ -4096,8 +4512,8 @@
         "monday": 256,
         "tuesday": 248,
         "wednesday": 249,
-        "thursday": 262,
-        "friday": 264,
+        "thursday": 253,
+        "friday": 251,
         "saturday": 329,
         "sunday": 306
       },
@@ -4110,23 +4526,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.498,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.463,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1640.58,
-        "expected_loss": 685.76,
-        "weekly_premium": 822.91
+        "weekly_baseline": 1621.71,
+        "expected_loss": 6.04,
+        "weekly_premium": 57.39,
+        "annual_premium": 2984.39,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.65,
-        "participation_consistency": 0.62,
-        "movement_consistency": 0.67,
-        "historical_deviation_avg": 0.33,
+        "trust_score": 0.69,
+        "participation_consistency": 0.658,
+        "movement_consistency": 0.712,
+        "historical_deviation_avg": 0.311,
         "anomaly_flag_count": 5,
-        "profile_type": "moderate"
+        "profile_type": "moderate",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4137,11 +4556,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 33,
-        "idle_ratio_so_far": 0.15,
-        "participation_score_so_far": 0.61,
+        "active_minutes_so_far": 52,
+        "idle_ratio_so_far": 0.09,
+        "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-059",
+        "password": "lavanya@123"
       }
     },
     {
@@ -4158,8 +4582,8 @@
         "monday": 428,
         "tuesday": 385,
         "wednesday": 383,
-        "thursday": 401,
-        "friday": 422,
+        "thursday": 388,
+        "friday": 399,
         "saturday": 505,
         "sunday": 487
       },
@@ -4172,23 +4596,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.634,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.581,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2580.84,
-        "expected_loss": 1166.54,
-        "weekly_premium": 1399.85
+        "weekly_baseline": 2550,
+        "expected_loss": 6.13,
+        "weekly_premium": 58.2,
+        "annual_premium": 3026.36,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.83,
-        "participation_consistency": 0.82,
-        "movement_consistency": 0.84,
-        "historical_deviation_avg": 0.17,
+        "trust_score": 0.87,
+        "participation_consistency": 0.86,
+        "movement_consistency": 0.88,
+        "historical_deviation_avg": 0.162,
         "anomaly_flag_count": 2,
-        "profile_type": "good"
+        "profile_type": "good",
+        "last_updated": "2026-04-17"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4199,11 +4626,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 92,
+        "active_minutes_so_far": 46,
         "idle_ratio_so_far": 0.08,
-        "participation_score_so_far": 0.81,
+        "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-17T04:13:35.640Z"
+      },
+      "auth": {
+        "username": "WK-060",
+        "password": "ganesh@123"
       }
     },
     {
@@ -4234,15 +4666,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.299,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.275,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2532.84,
-        "expected_loss": 1018.2,
-        "weekly_premium": 1221.84
+        "weekly_baseline": 2532.86,
+        "expected_loss": 4.72,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -4266,6 +4701,10 @@
         "participation_score_so_far": 0.45,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-061",
+        "password": "murugan@123"
       }
     },
     {
@@ -4296,15 +4735,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.114,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2908.26,
-        "expected_loss": 1494.85,
-        "weekly_premium": 1793.82
+        "weekly_baseline": 2908.29,
+        "expected_loss": 4.94,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -4328,6 +4770,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-062",
+        "password": "lavanya@123"
       }
     },
     {
@@ -4358,15 +4804,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.632,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.553,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2538,
-        "expected_loss": 1218.24,
-        "weekly_premium": 1461.89
+        "expected_loss": 6.2,
+        "weekly_premium": 58.86,
+        "annual_premium": 3060.72,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -4390,6 +4839,10 @@
         "participation_score_so_far": 0.81,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-063",
+        "password": "revathi@123"
       }
     },
     {
@@ -4420,15 +4873,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.495,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.433,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3095.16,
-        "expected_loss": 1467.11,
-        "weekly_premium": 1760.53
+        "weekly_baseline": 3095.14,
+        "expected_loss": 6.18,
+        "weekly_premium": 58.72,
+        "annual_premium": 3053.44,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -4452,6 +4908,10 @@
         "participation_score_so_far": 0.6,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-064",
+        "password": "meena@123"
       }
     },
     {
@@ -4482,15 +4942,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.689,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.603,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3052.26,
-        "expected_loss": 1318.58,
-        "weekly_premium": 1582.3
+        "weekly_baseline": 3052.29,
+        "expected_loss": 6.08,
+        "weekly_premium": 57.72,
+        "annual_premium": 3001.44,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -4514,6 +4977,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-065",
+        "password": "revathi@123"
       }
     },
     {
@@ -4544,15 +5011,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.92,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.782,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3132.84,
-        "expected_loss": 1309.53,
-        "weekly_premium": 1571.44
+        "weekly_baseline": 3132.86,
+        "expected_loss": 7.34,
+        "weekly_premium": 90.6,
+        "annual_premium": 4711.2,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -4576,6 +5046,10 @@
         "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-066",
+        "password": "sathish@123"
       }
     },
     {
@@ -4606,15 +5080,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.665,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.582,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2625.42,
-        "expected_loss": 1181.44,
-        "weekly_premium": 1417.73
+        "weekly_baseline": 2625.43,
+        "expected_loss": 6.12,
+        "weekly_premium": 58.15,
+        "annual_premium": 3023.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -4638,6 +5115,10 @@
         "participation_score_so_far": 0.86,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-067",
+        "password": "ravi@123"
       }
     },
     {
@@ -4668,15 +5149,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.567,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.497,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2003.16,
-        "expected_loss": 1085.71,
-        "weekly_premium": 1302.85
+        "weekly_baseline": 2003.14,
+        "expected_loss": 6.35,
+        "weekly_premium": 60.34,
+        "annual_premium": 3137.68,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -4700,6 +5184,10 @@
         "participation_score_so_far": 0.71,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-068",
+        "password": "harish@123"
       }
     },
     {
@@ -4730,15 +5218,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.709,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.62,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2624.58,
-        "expected_loss": 1238.8,
-        "weekly_premium": 1486.56
+        "weekly_baseline": 2624.57,
+        "expected_loss": 6.18,
+        "weekly_premium": 58.67,
+        "annual_premium": 3050.84,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -4762,6 +5253,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-069",
+        "password": "sneha@123"
       }
     },
     {
@@ -4792,15 +5287,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.218,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.2,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2153.16,
-        "expected_loss": 900.02,
-        "weekly_premium": 1080.02
+        "weekly_baseline": 2153.14,
+        "expected_loss": 4.75,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -4824,6 +5322,10 @@
         "participation_score_so_far": 0.31,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-070",
+        "password": "nandini@123"
       }
     },
     {
@@ -4840,7 +5342,7 @@
         "monday": 308,
         "tuesday": 278,
         "wednesday": 279,
-        "thursday": 292,
+        "thursday": 286,
         "friday": 306,
         "saturday": 361,
         "sunday": 348
@@ -4854,23 +5356,26 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.88,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.764,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1861.74,
-        "expected_loss": 1001.62,
-        "weekly_premium": 1201.94
+        "weekly_baseline": 1856.57,
+        "expected_loss": 7.7,
+        "weekly_premium": 92.83,
+        "annual_premium": 4827.09,
+        "coverage_tier": "pro"
       },
       "trust_profile": {
-        "trust_score": 0.93,
-        "participation_consistency": 0.94,
-        "movement_consistency": 0.92,
-        "historical_deviation_avg": 0.07,
+        "trust_score": 0.95,
+        "participation_consistency": 0.96,
+        "movement_consistency": 0.94,
+        "historical_deviation_avg": 0.069,
         "anomaly_flag_count": 0,
-        "profile_type": "excellent"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4881,11 +5386,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 58,
-        "idle_ratio_so_far": 0.1,
-        "participation_score_so_far": 0.89,
+        "active_minutes_so_far": 75,
+        "idle_ratio_so_far": 0.08,
+        "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-071",
+        "password": "ajay@123"
       }
     },
     {
@@ -4902,7 +5412,7 @@
         "monday": 469,
         "tuesday": 406,
         "wednesday": 409,
-        "thursday": 471,
+        "thursday": 453,
         "friday": 485,
         "saturday": 544,
         "sunday": 529
@@ -4916,23 +5426,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.217,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.147,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2839.74,
-        "expected_loss": 1329,
-        "weekly_premium": 1594.8
+        "weekly_baseline": 2824.29,
+        "expected_loss": 4.84,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
-        "trust_score": 0.38,
-        "participation_consistency": 0.35,
-        "movement_consistency": 0.4,
-        "historical_deviation_avg": 0.58,
-        "anomaly_flag_count": 9,
-        "profile_type": "low"
+        "trust_score": 0.28,
+        "participation_consistency": 0.258,
+        "movement_consistency": 0.295,
+        "historical_deviation_avg": 0.787,
+        "anomaly_flag_count": 10,
+        "profile_type": "critical",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -4943,11 +5456,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 90,
-        "idle_ratio_so_far": 0.35,
-        "participation_score_so_far": 0.3,
+        "active_minutes_so_far": 45,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-072",
+        "password": "ganesh@123"
       }
     },
     {
@@ -4964,7 +5482,7 @@
         "monday": 314,
         "tuesday": 274,
         "wednesday": 283,
-        "thursday": 301,
+        "thursday": 293,
         "friday": 326,
         "saturday": 372,
         "sunday": 337
@@ -4978,23 +5496,26 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.908,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.788,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1891.74,
-        "expected_loss": 1029.11,
-        "weekly_premium": 1234.93
+        "weekly_baseline": 1884.86,
+        "expected_loss": 7.72,
+        "weekly_premium": 94.24,
+        "annual_premium": 4900.63,
+        "coverage_tier": "pro"
       },
       "trust_profile": {
-        "trust_score": 0.96,
-        "participation_consistency": 0.97,
-        "movement_consistency": 0.95,
-        "historical_deviation_avg": 0.04,
+        "trust_score": 0.98,
+        "participation_consistency": 0.99,
+        "movement_consistency": 0.97,
+        "historical_deviation_avg": 0.039,
         "anomaly_flag_count": 0,
-        "profile_type": "excellent"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5005,11 +5526,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 98,
-        "idle_ratio_so_far": 0.03,
-        "participation_score_so_far": 0.94,
+        "active_minutes_so_far": 53,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-073",
+        "password": "priya@123"
       }
     },
     {
@@ -5026,7 +5552,7 @@
         "monday": 419,
         "tuesday": 392,
         "wednesday": 420,
-        "thursday": 416,
+        "thursday": 407,
         "friday": 473,
         "saturday": 494,
         "sunday": 496
@@ -5040,23 +5566,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.632,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.566,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2665.74,
-        "expected_loss": 1300.88,
-        "weekly_premium": 1561.06
+        "weekly_baseline": 2658,
+        "expected_loss": 6.22,
+        "weekly_premium": 59.05,
+        "annual_premium": 3070.79,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.83,
-        "participation_consistency": 0.82,
-        "movement_consistency": 0.84,
-        "historical_deviation_avg": 0.17,
+        "trust_score": 0.85,
+        "participation_consistency": 0.84,
+        "movement_consistency": 0.86,
+        "historical_deviation_avg": 0.166,
         "anomaly_flag_count": 2,
-        "profile_type": "good"
+        "profile_type": "good",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5067,11 +5596,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 100,
-        "idle_ratio_so_far": 0.03,
-        "participation_score_so_far": 0.8,
+        "active_minutes_so_far": 46,
+        "idle_ratio_so_far": 0.12,
+        "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-074",
+        "password": "archana@123"
       }
     },
     {
@@ -5088,7 +5622,7 @@
         "monday": 280,
         "tuesday": 267,
         "wednesday": 276,
-        "thursday": 295,
+        "thursday": 286,
         "friday": 305,
         "saturday": 335,
         "sunday": 312
@@ -5102,23 +5636,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.492,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.43,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1774.26,
-        "expected_loss": 968.75,
-        "weekly_premium": 1162.5
+        "weekly_baseline": 1766.57,
+        "expected_loss": 6.36,
+        "weekly_premium": 60.43,
+        "annual_premium": 3142.38,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
         "trust_score": 0.65,
         "participation_consistency": 0.62,
         "movement_consistency": 0.67,
         "historical_deviation_avg": 0.33,
-        "anomaly_flag_count": 5,
-        "profile_type": "moderate"
+        "anomaly_flag_count": 6,
+        "profile_type": "moderate",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5129,11 +5666,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 52,
-        "idle_ratio_so_far": 0.56,
-        "participation_score_so_far": 0.6,
+        "active_minutes_so_far": 84,
+        "idle_ratio_so_far": 0.09,
+        "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-075",
+        "password": "venkat@123"
       }
     },
     {
@@ -5150,7 +5692,7 @@
         "monday": 288,
         "tuesday": 271,
         "wednesday": 258,
-        "thursday": 276,
+        "thursday": 272,
         "friday": 305,
         "saturday": 351,
         "sunday": 318
@@ -5164,23 +5706,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.683,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.611,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1771.74,
-        "expected_loss": 914.22,
-        "weekly_premium": 1097.06
+        "weekly_baseline": 1768.29,
+        "expected_loss": 6.29,
+        "weekly_premium": 59.72,
+        "annual_premium": 3105.35,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.9,
-        "participation_consistency": 0.91,
-        "movement_consistency": 0.89,
-        "historical_deviation_avg": 0.1,
+        "trust_score": 0.92,
+        "participation_consistency": 0.93,
+        "movement_consistency": 0.91,
+        "historical_deviation_avg": 0.098,
         "anomaly_flag_count": 1,
-        "profile_type": "good"
+        "profile_type": "excellent",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5191,11 +5736,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 99,
-        "idle_ratio_so_far": 0.07,
-        "participation_score_so_far": 0.87,
+        "active_minutes_so_far": 89,
+        "idle_ratio_so_far": 0.04,
+        "participation_score_so_far": 0.92,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-076",
+        "password": "naveen@123"
       }
     },
     {
@@ -5226,23 +5776,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.114,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2624.58,
-        "expected_loss": 1375.28,
-        "weekly_premium": 1650.34
+        "weekly_baseline": 2624.57,
+        "expected_loss": 4.95,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
         "trust_score": 0.2,
         "participation_consistency": 0.17,
         "movement_consistency": 0.22,
         "historical_deviation_avg": 0.75,
-        "anomaly_flag_count": 14,
-        "profile_type": "critical"
+        "anomaly_flag_count": 15,
+        "profile_type": "critical",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5250,14 +5803,19 @@
         "shift_start": "09:00",
         "shift_end": "18:00",
         "total_shift_minutes": 540,
-        "status": "inactive",
+        "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 16,
-        "idle_ratio_so_far": 0.25,
-        "participation_score_so_far": 0.13,
-        "pre_disruption_confirmed": false,
-        "earnings_before_disruption": 0
+        "active_minutes_so_far": 68,
+        "idle_ratio_so_far": 0.05,
+        "participation_score_so_far": 0.9,
+        "pre_disruption_confirmed": true,
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-077",
+        "password": "suresh@123"
       }
     },
     {
@@ -5274,7 +5832,7 @@
         "monday": 398,
         "tuesday": 374,
         "wednesday": 389,
-        "thursday": 416,
+        "thursday": 403,
         "friday": 444,
         "saturday": 480,
         "sunday": 473
@@ -5288,23 +5846,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.296,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.224,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2549.16,
-        "expected_loss": 1325.56,
-        "weekly_premium": 1590.67
+        "weekly_baseline": 2538,
+        "expected_loss": 4.95,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
-        "trust_score": 0.52,
-        "participation_consistency": 0.49,
-        "movement_consistency": 0.54,
-        "historical_deviation_avg": 0.45,
-        "anomaly_flag_count": 6,
-        "profile_type": "low"
+        "trust_score": 0.43,
+        "participation_consistency": 0.405,
+        "movement_consistency": 0.447,
+        "historical_deviation_avg": 0.544,
+        "anomaly_flag_count": 7,
+        "profile_type": "low",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5315,11 +5876,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": true,
-        "active_minutes_so_far": 37,
-        "idle_ratio_so_far": 0.14,
-        "participation_score_so_far": 0.47,
+        "active_minutes_so_far": 54,
+        "idle_ratio_so_far": 0.06,
+        "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-078",
+        "password": "selvam@123"
       }
     },
     {
@@ -5350,23 +5916,26 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.424,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.389,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2935.74,
-        "expected_loss": 1673.37,
-        "weekly_premium": 2008.04
+        "weekly_baseline": 2935.71,
+        "expected_loss": 5.05,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic"
       },
       "trust_profile": {
         "trust_score": 0.75,
         "participation_consistency": 0.73,
         "movement_consistency": 0.76,
         "historical_deviation_avg": 0.24,
-        "anomaly_flag_count": 3,
-        "profile_type": "moderate"
+        "anomaly_flag_count": 4,
+        "profile_type": "good",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5374,14 +5943,19 @@
         "shift_start": "09:00",
         "shift_end": "18:00",
         "total_shift_minutes": 540,
-        "status": "inactive",
+        "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 11,
-        "idle_ratio_so_far": 0.34,
-        "participation_score_so_far": 0.7,
-        "pre_disruption_confirmed": false,
-        "earnings_before_disruption": 0
+        "active_minutes_so_far": 83,
+        "idle_ratio_so_far": 0.12,
+        "participation_score_so_far": 0.92,
+        "pre_disruption_confirmed": true,
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-079",
+        "password": "sunil@123"
       }
     },
     {
@@ -5398,7 +5972,7 @@
         "monday": 394,
         "tuesday": 330,
         "wednesday": 351,
-        "thursday": 381,
+        "thursday": 367,
         "friday": 412,
         "saturday": 435,
         "sunday": 445
@@ -5412,23 +5986,26 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.659,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.59,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2355.42,
-        "expected_loss": 1248.37,
-        "weekly_premium": 1498.04
+        "weekly_baseline": 2343.43,
+        "expected_loss": 6.32,
+        "weekly_premium": 60.05,
+        "annual_premium": 3122.63,
+        "coverage_tier": "standard"
       },
       "trust_profile": {
-        "trust_score": 0.87,
-        "participation_consistency": 0.86,
-        "movement_consistency": 0.88,
-        "historical_deviation_avg": 0.13,
+        "trust_score": 0.89,
+        "participation_consistency": 0.88,
+        "movement_consistency": 0.9,
+        "historical_deviation_avg": 0.127,
         "anomaly_flag_count": 1,
-        "profile_type": "good"
+        "profile_type": "good",
+        "last_updated": "2026-04-16"
       },
       "current_session": {
         "date": "2025-07-01",
@@ -5439,11 +6016,16 @@
         "status": "active",
         "location_in_zone": true,
         "gps_anomaly_detected": false,
-        "active_minutes_so_far": 108,
-        "idle_ratio_so_far": 0.06,
-        "participation_score_so_far": 0.85,
+        "active_minutes_so_far": 53,
+        "idle_ratio_so_far": 0.07,
+        "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
-        "earnings_before_disruption": 0
+        "earnings_before_disruption": 0,
+        "last_updated": "2026-04-16T16:24:28.059Z"
+      },
+      "auth": {
+        "username": "WK-080",
+        "password": "preeti@123"
       }
     },
     {
@@ -5474,15 +6056,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.634,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.555,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2552.58,
-        "expected_loss": 1148.66,
-        "weekly_premium": 1378.39
+        "weekly_baseline": 2552.57,
+        "expected_loss": 6.12,
+        "weekly_premium": 58.15,
+        "annual_premium": 3023.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -5506,6 +6091,10 @@
         "participation_score_so_far": 0.79,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-081",
+        "password": "harish@123"
       }
     },
     {
@@ -5536,15 +6125,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.496,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.434,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3125.16,
-        "expected_loss": 1437.57,
-        "weekly_premium": 1725.08
+        "weekly_baseline": 3125.14,
+        "expected_loss": 6.15,
+        "weekly_premium": 58.39,
+        "annual_premium": 3036.28,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -5568,6 +6160,10 @@
         "participation_score_so_far": 0.58,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-082",
+        "password": "bharathi@123"
       }
     },
     {
@@ -5598,15 +6194,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.114,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3227.16,
-        "expected_loss": 1703.94,
-        "weekly_premium": 2044.73
+        "weekly_baseline": 3227.14,
+        "expected_loss": 4.96,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -5630,6 +6229,10 @@
         "participation_score_so_far": 0.15,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-083",
+        "password": "vijay@123"
       }
     },
     {
@@ -5660,15 +6263,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.733,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.641,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2126.58,
-        "expected_loss": 973.97,
-        "weekly_premium": 1168.76
+        "weekly_baseline": 2126.57,
+        "expected_loss": 6.14,
+        "weekly_premium": 58.34,
+        "annual_premium": 3033.68,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -5692,6 +6298,10 @@
         "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-084",
+        "password": "mohan@123"
       }
     },
     {
@@ -5722,15 +6332,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.665,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.581,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2489.16,
-        "expected_loss": 1125.1,
-        "weekly_premium": 1350.12
+        "weekly_baseline": 2489.14,
+        "expected_loss": 6.13,
+        "weekly_premium": 58.2,
+        "annual_premium": 3026.4,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -5754,6 +6367,10 @@
         "participation_score_so_far": 0.85,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-085",
+        "password": "ganesh@123"
       }
     },
     {
@@ -5784,15 +6401,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.573,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.501,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3145.74,
-        "expected_loss": 1409.29,
-        "weekly_premium": 1691.15
+        "weekly_baseline": 3145.71,
+        "expected_loss": 6.12,
+        "weekly_premium": 58.1,
+        "annual_premium": 3021.2,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -5816,6 +6436,10 @@
         "participation_score_so_far": 0.69,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-086",
+        "password": "archana@123"
       }
     },
     {
@@ -5846,15 +6470,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.217,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.199,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3180.84,
-        "expected_loss": 1514.08,
-        "weekly_premium": 1816.9
+        "weekly_baseline": 3180.86,
+        "expected_loss": 4.86,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -5878,6 +6505,10 @@
         "participation_score_so_far": 0.31,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-087",
+        "password": "dinesh@123"
       }
     },
     {
@@ -5908,15 +6539,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.296,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.271,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2678.58,
-        "expected_loss": 1387.5,
-        "weekly_premium": 1665
+        "weekly_baseline": 2678.57,
+        "expected_loss": 4.94,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -5940,6 +6574,10 @@
         "participation_score_so_far": 0.44,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-088",
+        "password": "lavanya@123"
       }
     },
     {
@@ -5970,15 +6608,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.886,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.753,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 3148.26,
-        "expected_loss": 1498.57,
-        "weekly_premium": 1798.28
+        "weekly_baseline": 3148.29,
+        "expected_loss": 7.51,
+        "weekly_premium": 92.77,
+        "annual_premium": 4824.04,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -6002,6 +6643,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-089",
+        "password": "swathi@123"
       }
     },
     {
@@ -6032,15 +6677,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.683,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.598,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2487.42,
-        "expected_loss": 1278.53,
-        "weekly_premium": 1534.24
+        "weekly_baseline": 2487.43,
+        "expected_loss": 6.28,
+        "weekly_premium": 59.67,
+        "annual_premium": 3102.84,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -6064,6 +6712,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-090",
+        "password": "pooja@123"
       }
     },
     {
@@ -6094,15 +6746,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.497,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.435,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2946.84,
-        "expected_loss": 1302.5,
-        "weekly_premium": 1563
+        "weekly_baseline": 2946.86,
+        "expected_loss": 6.1,
+        "weekly_premium": 57.96,
+        "annual_premium": 3013.92,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -6126,6 +6781,10 @@
         "participation_score_so_far": 0.6,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-091",
+        "password": "murugan@123"
       }
     },
     {
@@ -6156,15 +6815,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.678,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.593,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2683.74,
-        "expected_loss": 1578.04,
-        "weekly_premium": 1893.65
+        "weekly_baseline": 2683.71,
+        "expected_loss": 6.47,
+        "weekly_premium": 61.43,
+        "annual_premium": 3194.36,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -6188,6 +6850,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-092",
+        "password": "vikram@123"
       }
     },
     {
@@ -6218,15 +6884,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.297,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.272,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2447.16,
-        "expected_loss": 1184.43,
-        "weekly_premium": 1421.32
+        "weekly_baseline": 2447.14,
+        "expected_loss": 4.88,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -6250,6 +6919,10 @@
         "participation_score_so_far": 0.48,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-093",
+        "password": "archana@123"
       }
     },
     {
@@ -6280,15 +6953,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.427,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.392,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2296.26,
-        "expected_loss": 1152.72,
-        "weekly_premium": 1383.26
+        "weekly_baseline": 2296.29,
+        "expected_loss": 4.91,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -6312,6 +6988,10 @@
         "participation_score_so_far": 0.71,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-094",
+        "password": "mohan@123"
       }
     },
     {
@@ -6342,15 +7022,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.881,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.749,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2594.58,
-        "expected_loss": 1364.75,
-        "weekly_premium": 1637.7
+        "weekly_baseline": 2594.57,
+        "expected_loss": 7.66,
+        "weekly_premium": 94.64,
+        "annual_premium": 4921.28,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -6374,6 +7057,10 @@
         "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-095",
+        "password": "imran@123"
       }
     },
     {
@@ -6404,15 +7091,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.215,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.197,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2500.26,
-        "expected_loss": 1415.15,
-        "weekly_premium": 1698.18
+        "weekly_baseline": 2500.29,
+        "expected_loss": 5.04,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -6436,6 +7126,10 @@
         "participation_score_so_far": 0.34,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-096",
+        "password": "murugan@123"
       }
     },
     {
@@ -6466,15 +7160,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.472,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.433,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2187.42,
-        "expected_loss": 1128.71,
-        "weekly_premium": 1354.45
+        "weekly_baseline": 2187.43,
+        "expected_loss": 4.94,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -6498,6 +7195,10 @@
         "participation_score_so_far": 0.81,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-097",
+        "password": "archana@123"
       }
     },
     {
@@ -6528,15 +7229,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.726,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.635,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2367.42,
-        "expected_loss": 1302.08,
-        "weekly_premium": 1562.5
+        "weekly_baseline": 2367.43,
+        "expected_loss": 6.37,
+        "weekly_premium": 60.53,
+        "annual_premium": 3147.56,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -6560,6 +7264,10 @@
         "participation_score_so_far": 0.92,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-098",
+        "password": "deepa@123"
       }
     },
     {
@@ -6590,15 +7298,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.658,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.576,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2021.16,
-        "expected_loss": 1091.43,
-        "weekly_premium": 1309.72
+        "weekly_baseline": 2021.14,
+        "expected_loss": 6.35,
+        "weekly_premium": 60.29,
+        "annual_premium": 3135.08,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -6622,6 +7333,10 @@
         "participation_score_so_far": 0.82,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-099",
+        "password": "prakash@123"
       }
     },
     {
@@ -6652,15 +7367,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1809.42,
-        "expected_loss": 1031.37,
-        "weekly_premium": 1237.64
+        "weekly_baseline": 1809.43,
+        "expected_loss": 5.05,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -6684,6 +7402,10 @@
         "participation_score_so_far": 0.15,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-100",
+        "password": "selvam@123"
       }
     },
     {
@@ -6714,15 +7436,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.37,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.339,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1318.26,
-        "expected_loss": 672.31,
-        "weekly_premium": 806.77
+        "weekly_baseline": 1318.29,
+        "expected_loss": 4.93,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -6746,6 +7471,10 @@
         "participation_score_so_far": 0.58,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-101",
+        "password": "sindhu@123"
       }
     },
     {
@@ -6776,15 +7505,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.881,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.749,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1925.16,
-        "expected_loss": 1016.48,
-        "weekly_premium": 1219.78
+        "weekly_baseline": 1925.14,
+        "expected_loss": 7.67,
+        "weekly_premium": 94.72,
+        "annual_premium": 4925.44,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -6808,6 +7540,10 @@
         "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-102",
+        "password": "asha@123"
       }
     },
     {
@@ -6838,15 +7574,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.215,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.197,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2596.26,
-        "expected_loss": 1479.87,
-        "weekly_premium": 1775.84
+        "weekly_baseline": 2596.29,
+        "expected_loss": 5.05,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -6870,6 +7609,10 @@
         "participation_score_so_far": 0.33,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-103",
+        "password": "anitha@123"
       }
     },
     {
@@ -6900,15 +7643,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1699.74,
-        "expected_loss": 941.66,
-        "weekly_premium": 1129.99
+        "weekly_baseline": 1699.71,
+        "expected_loss": 5.01,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -6932,6 +7678,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-104",
+        "password": "sindhu@123"
       }
     },
     {
@@ -6962,15 +7712,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.424,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.389,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2253.42,
-        "expected_loss": 1302.48,
-        "weekly_premium": 1562.98
+        "weekly_baseline": 2253.43,
+        "expected_loss": 5.06,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -6994,6 +7747,10 @@
         "participation_score_so_far": 0.71,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-105",
+        "password": "harish@123"
       }
     },
     {
@@ -7024,15 +7781,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.658,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.576,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2632.26,
-        "expected_loss": 1447.74,
-        "weekly_premium": 1737.29
+        "weekly_baseline": 2632.29,
+        "expected_loss": 6.37,
+        "weekly_premium": 60.53,
+        "annual_premium": 3147.56,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -7056,6 +7816,10 @@
         "participation_score_so_far": 0.86,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-106",
+        "password": "anitha@123"
       }
     },
     {
@@ -7086,15 +7850,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.626,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.548,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1590.84,
-        "expected_loss": 909.96,
-        "weekly_premium": 1091.95
+        "weekly_baseline": 1590.86,
+        "expected_loss": 6.43,
+        "weekly_premium": 61.05,
+        "annual_premium": 3174.6,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -7118,6 +7885,10 @@
         "participation_score_so_far": 0.8,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-107",
+        "password": "sathish@123"
       }
     },
     {
@@ -7148,15 +7919,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.679,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.594,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2530.26,
-        "expected_loss": 1432.13,
-        "weekly_premium": 1718.56
+        "weekly_baseline": 2530.29,
+        "expected_loss": 6.41,
+        "weekly_premium": 60.9,
+        "annual_premium": 3166.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -7180,6 +7954,10 @@
         "participation_score_so_far": 0.88,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-108",
+        "password": "karthik@123"
       }
     },
     {
@@ -7210,15 +7988,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.293,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.269,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1800.84,
-        "expected_loss": 1098.51,
-        "weekly_premium": 1318.21
+        "weekly_baseline": 1800.86,
+        "expected_loss": 5.12,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -7242,6 +8023,10 @@
         "participation_score_so_far": 0.47,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-109",
+        "password": "fatima@123"
       }
     },
     {
@@ -7272,15 +8057,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.904,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.768,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2055.42,
-        "expected_loss": 1208.59,
-        "weekly_premium": 1450.31
+        "weekly_baseline": 2055.43,
+        "expected_loss": 7.85,
+        "weekly_premium": 96.97,
+        "annual_premium": 5042.44,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -7304,6 +8092,10 @@
         "participation_score_so_far": 0.92,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-110",
+        "password": "padma@123"
       }
     },
     {
@@ -7334,15 +8126,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.625,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.547,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2369.16,
-        "expected_loss": 1397.8,
-        "weekly_premium": 1677.36
+        "weekly_baseline": 2369.14,
+        "expected_loss": 6.47,
+        "weekly_premium": 61.47,
+        "annual_premium": 3196.44,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -7366,6 +8161,10 @@
         "participation_score_so_far": 0.79,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-111",
+        "password": "sunil@123"
       }
     },
     {
@@ -7396,15 +8195,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.655,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.573,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1680,
-        "expected_loss": 981.12,
-        "weekly_premium": 1177.34
+        "expected_loss": 6.46,
+        "weekly_premium": 61.33,
+        "annual_premium": 3189.16,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -7428,6 +8230,10 @@
         "participation_score_so_far": 0.82,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-112",
+        "password": "lavanya@123"
       }
     },
     {
@@ -7458,15 +8264,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.676,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.592,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2199.42,
-        "expected_loss": 1337.25,
-        "weekly_premium": 1604.7
+        "weekly_baseline": 2199.43,
+        "expected_loss": 6.52,
+        "weekly_premium": 61.9,
+        "annual_premium": 3218.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -7490,6 +8299,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-113",
+        "password": "padma@123"
       }
     },
     {
@@ -7520,15 +8333,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.217,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.199,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1425.42,
-        "expected_loss": 698.46,
-        "weekly_premium": 838.15
+        "weekly_baseline": 1425.43,
+        "expected_loss": 4.89,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -7552,6 +8368,10 @@
         "participation_score_so_far": 0.32,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-114",
+        "password": "naveen@123"
       }
     },
     {
@@ -7582,15 +8402,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.295,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.27,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1517.16,
-        "expected_loss": 840.51,
-        "weekly_premium": 1008.61
+        "weekly_baseline": 1517.14,
+        "expected_loss": 5.01,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -7614,6 +8437,10 @@
         "participation_score_so_far": 0.45,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-115",
+        "password": "vikram@123"
       }
     },
     {
@@ -7644,15 +8471,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.567,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.497,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1969.74,
-        "expected_loss": 1067.6,
-        "weekly_premium": 1281.12
+        "weekly_baseline": 1969.71,
+        "expected_loss": 6.35,
+        "weekly_premium": 60.34,
+        "annual_premium": 3137.68,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -7676,6 +8506,10 @@
         "participation_score_so_far": 0.71,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-116",
+        "password": "sathish@123"
       }
     },
     {
@@ -7706,15 +8540,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.881,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.749,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1444.26,
-        "expected_loss": 753.9,
-        "weekly_premium": 904.68
+        "weekly_baseline": 1444.29,
+        "expected_loss": 7.65,
+        "weekly_premium": 72.21,
+        "annual_premium": 3754.92,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -7738,6 +8575,10 @@
         "participation_score_so_far": 0.93,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-117",
+        "password": "selvam@123"
       }
     },
     {
@@ -7768,15 +8609,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.368,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.338,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2363.16,
-        "expected_loss": 1309.19,
-        "weekly_premium": 1571.03
+        "weekly_baseline": 2363.14,
+        "expected_loss": 5.01,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -7800,6 +8644,10 @@
         "participation_score_so_far": 0.59,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-118",
+        "password": "vikram@123"
       }
     },
     {
@@ -7830,15 +8678,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1788.84,
-        "expected_loss": 998.17,
-        "weekly_premium": 1197.8
+        "weekly_baseline": 1788.86,
+        "expected_loss": 5.02,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -7862,6 +8713,10 @@
         "participation_score_so_far": 0.16,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-119",
+        "password": "ajay@123"
       }
     },
     {
@@ -7892,15 +8747,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.907,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.771,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2837.16,
-        "expected_loss": 1577.46,
-        "weekly_premium": 1892.95
+        "weekly_baseline": 2837.14,
+        "expected_loss": 7.75,
+        "weekly_premium": 95.77,
+        "annual_premium": 4980.04,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -7924,6 +8782,10 @@
         "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-120",
+        "password": "rahul@123"
       }
     },
     {
@@ -7954,15 +8816,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.214,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.196,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2471.16,
-        "expected_loss": 1517.29,
-        "weekly_premium": 1820.75
+        "weekly_baseline": 2471.14,
+        "expected_loss": 5.13,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -7986,6 +8851,10 @@
         "participation_score_so_far": 0.34,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-121",
+        "password": "vijay@123"
       }
     },
     {
@@ -8016,15 +8885,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.875,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.744,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2852.58,
-        "expected_loss": 1688.73,
-        "weekly_premium": 2026.48
+        "weekly_baseline": 2852.57,
+        "expected_loss": 7.86,
+        "weekly_premium": 97.12,
+        "annual_premium": 5050.24,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -8048,6 +8920,10 @@
         "participation_score_so_far": 0.9,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-122",
+        "password": "deepa@123"
       }
     },
     {
@@ -8078,15 +8954,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.677,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.592,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2063.16,
-        "expected_loss": 1242.02,
-        "weekly_premium": 1490.42
+        "weekly_baseline": 2063.14,
+        "expected_loss": 6.5,
+        "weekly_premium": 61.76,
+        "annual_premium": 3211.52,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -8110,6 +8989,10 @@
         "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-123",
+        "password": "revathi@123"
       }
     },
     {
@@ -8140,15 +9023,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2617.74,
-        "expected_loss": 1471.17,
-        "weekly_premium": 1765.4
+        "weekly_baseline": 2617.71,
+        "expected_loss": 5.03,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -8172,6 +9058,10 @@
         "participation_score_so_far": 0.13,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-124",
+        "password": "naveen@123"
       }
     },
     {
@@ -8202,15 +9092,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.726,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.635,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2031.42,
-        "expected_loss": 1113.22,
-        "weekly_premium": 1335.86
+        "weekly_baseline": 2031.43,
+        "expected_loss": 6.37,
+        "weekly_premium": 60.48,
+        "annual_premium": 3144.96,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -8234,6 +9127,10 @@
         "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-125",
+        "password": "venkat@123"
       }
     },
     {
@@ -8264,15 +9161,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.564,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.494,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2253.42,
-        "expected_loss": 1347.55,
-        "weekly_premium": 1617.06
+        "weekly_baseline": 2253.43,
+        "expected_loss": 6.49,
+        "weekly_premium": 61.66,
+        "annual_premium": 3206.32,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -8296,6 +9196,10 @@
         "participation_score_so_far": 0.72,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-126",
+        "password": "kumar@123"
       }
     },
     {
@@ -8326,15 +9230,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.368,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.338,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2253.42,
-        "expected_loss": 1257.41,
-        "weekly_premium": 1508.89
+        "weekly_baseline": 2253.43,
+        "expected_loss": 5.02,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -8358,6 +9265,10 @@
         "participation_score_so_far": 0.62,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-127",
+        "password": "sneha@123"
       }
     },
     {
@@ -8388,15 +9299,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.631,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.552,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1950.84,
-        "expected_loss": 983.22,
-        "weekly_premium": 1179.86
+        "weekly_baseline": 1950.86,
+        "expected_loss": 6.26,
+        "weekly_premium": 59.43,
+        "annual_premium": 3090.36,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -8420,6 +9334,10 @@
         "participation_score_so_far": 0.81,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-128",
+        "password": "arjun@123"
       }
     },
     {
@@ -8450,15 +9368,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.294,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.27,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1508.58,
-        "expected_loss": 853.86,
-        "weekly_premium": 1024.63
+        "weekly_baseline": 1508.57,
+        "expected_loss": 5.04,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -8482,6 +9403,10 @@
         "participation_score_so_far": 0.47,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-129",
+        "password": "prakash@123"
       }
     },
     {
@@ -8512,15 +9437,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.652,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.571,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1702.26,
-        "expected_loss": 1075.83,
-        "weekly_premium": 1291
+        "weekly_baseline": 1702.29,
+        "expected_loss": 6.58,
+        "weekly_premium": 62.47,
+        "annual_premium": 3248.44,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -8544,6 +9472,10 @@
         "participation_score_so_far": 0.85,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-130",
+        "password": "arjun@123"
       }
     },
     {
@@ -8574,15 +9506,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.696,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.609,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1686.84,
-        "expected_loss": 1079.58,
-        "weekly_premium": 1295.5
+        "weekly_baseline": 1686.86,
+        "expected_loss": 6.6,
+        "weekly_premium": 62.66,
+        "annual_premium": 3258.32,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -8606,6 +9541,10 @@
         "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-131",
+        "password": "ramesh@123"
       }
     },
     {
@@ -8636,15 +9575,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.901,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.766,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2243.16,
-        "expected_loss": 1386.27,
-        "weekly_premium": 1663.52
+        "weekly_baseline": 2243.14,
+        "expected_loss": 7.94,
+        "weekly_premium": 98.09,
+        "annual_premium": 5100.68,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -8668,6 +9610,10 @@
         "participation_score_so_far": 0.96,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-132",
+        "password": "sunil@123"
       }
     },
     {
@@ -8698,15 +9644,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.654,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.572,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1507.74,
-        "expected_loss": 910.67,
-        "weekly_premium": 1092.8
+        "weekly_baseline": 1507.71,
+        "expected_loss": 6.51,
+        "weekly_premium": 61.81,
+        "annual_premium": 3214.12,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -8730,6 +9679,10 @@
         "participation_score_so_far": 0.81,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-133",
+        "password": "saranya@123"
       }
     },
     {
@@ -8760,15 +9713,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.624,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.546,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 2772,
-        "expected_loss": 1685.38,
-        "weekly_premium": 2022.46
+        "expected_loss": 6.52,
+        "weekly_premium": 61.9,
+        "annual_premium": 3218.8,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -8792,6 +9748,10 @@
         "participation_score_so_far": 0.78,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-134",
+        "password": "lavanya@123"
       }
     },
     {
@@ -8822,15 +9782,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.489,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.428,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1311.42,
-        "expected_loss": 781.61,
-        "weekly_premium": 937.93
+        "weekly_baseline": 1311.43,
+        "expected_loss": 6.49,
+        "weekly_premium": 61.62,
+        "annual_premium": 3204.24,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -8854,6 +9817,10 @@
         "participation_score_so_far": 0.61,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-135",
+        "password": "imran@123"
       }
     },
     {
@@ -8884,15 +9851,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1584,
-        "expected_loss": 918.72,
-        "weekly_premium": 1102.46
+        "expected_loss": 5.06,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -8916,6 +9886,10 @@
         "participation_score_so_far": 0.12,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-136",
+        "password": "divya@123"
       }
     },
     {
@@ -8946,15 +9920,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.293,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.268,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1736.58,
-        "expected_loss": 1062.79,
-        "weekly_premium": 1275.35
+        "weekly_baseline": 1736.57,
+        "expected_loss": 5.13,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -8978,6 +9955,10 @@
         "participation_score_so_far": 0.44,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-137",
+        "password": "rahul@123"
       }
     },
     {
@@ -9008,15 +9989,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.423,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.387,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2150.58,
-        "expected_loss": 1311.85,
-        "weekly_premium": 1574.22
+        "weekly_baseline": 2150.57,
+        "expected_loss": 5.12,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -9040,6 +10024,10 @@
         "participation_score_so_far": 0.73,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-138",
+        "password": "fatima@123"
       }
     },
     {
@@ -9070,15 +10058,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.51,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.467,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2789.16,
-        "expected_loss": 1573.09,
-        "weekly_premium": 1887.71
+        "weekly_baseline": 2789.14,
+        "expected_loss": 5.03,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -9102,6 +10093,10 @@
         "participation_score_so_far": 0.89,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-139",
+        "password": "revathi@123"
       }
     },
     {
@@ -9132,15 +10127,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.215,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.197,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2282.58,
-        "expected_loss": 1259.98,
-        "weekly_premium": 1511.98
+        "weekly_baseline": 2282.57,
+        "expected_loss": 5.01,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -9164,6 +10162,10 @@
         "participation_score_so_far": 0.31,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-140",
+        "password": "sunil@123"
       }
     },
     {
@@ -9194,15 +10196,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.49,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.429,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1741.74,
-        "expected_loss": 996.28,
-        "weekly_premium": 1195.54
+        "weekly_baseline": 1741.71,
+        "expected_loss": 6.43,
+        "weekly_premium": 61.05,
+        "annual_premium": 3174.6,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.65,
@@ -9226,6 +10231,10 @@
         "participation_score_so_far": 0.58,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-141",
+        "password": "vijay@123"
       }
     },
     {
@@ -9256,15 +10265,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.295,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.27,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2701.74,
-        "expected_loss": 1475.15,
-        "weekly_premium": 1770.18
+        "weekly_baseline": 2701.71,
+        "expected_loss": 5,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.52,
@@ -9288,6 +10300,10 @@
         "participation_score_so_far": 0.48,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-142",
+        "password": "sindhu@123"
       }
     },
     {
@@ -9318,15 +10334,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.625,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.547,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2735.16,
-        "expected_loss": 1591.86,
-        "weekly_premium": 1910.23
+        "weekly_baseline": 2735.14,
+        "expected_loss": 6.45,
+        "weekly_premium": 61.28,
+        "annual_premium": 3186.56,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.83,
@@ -9350,6 +10369,10 @@
         "participation_score_so_far": 0.8,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-143",
+        "password": "divya@123"
       }
     },
     {
@@ -9380,15 +10403,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.655,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.573,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2300.58,
-        "expected_loss": 1348.14,
-        "weekly_premium": 1617.77
+        "weekly_baseline": 2300.57,
+        "expected_loss": 6.46,
+        "weekly_premium": 61.38,
+        "annual_premium": 3191.76,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.87,
@@ -9412,6 +10438,10 @@
         "participation_score_so_far": 0.83,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-144",
+        "password": "prakash@123"
       }
     },
     {
@@ -9442,15 +10472,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.113,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.104,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2494.26,
-        "expected_loss": 1411.75,
-        "weekly_premium": 1694.1
+        "weekly_baseline": 2494.29,
+        "expected_loss": 5.04,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.2,
@@ -9474,6 +10507,10 @@
         "participation_score_so_far": 0.15,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-145",
+        "password": "karthik@123"
       }
     },
     {
@@ -9504,15 +10541,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.215,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.197,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2326.26,
-        "expected_loss": 1307.36,
-        "weekly_premium": 1568.83
+        "weekly_baseline": 2326.29,
+        "expected_loss": 5.03,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.38,
@@ -9536,6 +10576,10 @@
         "participation_score_so_far": 0.34,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-146",
+        "password": "bhavana@123"
       }
     },
     {
@@ -9566,15 +10610,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.569,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.498,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2052.84,
-        "expected_loss": 1055.16,
-        "weekly_premium": 1266.19
+        "weekly_baseline": 2052.86,
+        "expected_loss": 6.28,
+        "weekly_premium": 59.67,
+        "annual_premium": 3102.84,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.75,
@@ -9598,6 +10645,10 @@
         "participation_score_so_far": 0.7,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-147",
+        "password": "asha@123"
       }
     },
     {
@@ -9628,15 +10679,18 @@
       },
       "insurance_plan": {
         "plan_tier": "standard",
-        "base_coverage": 0.8,
-        "adjusted_coverage": 0.678,
+        "base_coverage": 0.7,
+        "adjusted_coverage": 0.593,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 2841.42,
-        "expected_loss": 1670.75,
-        "weekly_premium": 2004.9
+        "weekly_baseline": 2841.43,
+        "expected_loss": 6.47,
+        "weekly_premium": 61.43,
+        "annual_premium": 3194.36,
+        "coverage_tier": "standard",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.9,
@@ -9660,6 +10714,10 @@
         "participation_score_so_far": 0.87,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-148",
+        "password": "nithya@123"
       }
     },
     {
@@ -9690,15 +10748,18 @@
       },
       "insurance_plan": {
         "plan_tier": "basic",
-        "base_coverage": 0.6,
-        "adjusted_coverage": 0.541,
+        "base_coverage": 0.55,
+        "adjusted_coverage": 0.496,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
-        "weekly_baseline": 1660.26,
-        "expected_loss": 999.48,
-        "weekly_premium": 1199.38
+        "weekly_baseline": 1660.29,
+        "expected_loss": 5.11,
+        "weekly_premium": 40,
+        "annual_premium": 2080,
+        "coverage_tier": "basic",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.96,
@@ -9722,6 +10783,10 @@
         "participation_score_so_far": 0.95,
         "pre_disruption_confirmed": false,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-149",
+        "password": "vijay@123"
       }
     },
     {
@@ -9752,15 +10817,18 @@
       },
       "insurance_plan": {
         "plan_tier": "pro",
-        "base_coverage": 1,
-        "adjusted_coverage": 0.884,
+        "base_coverage": 0.85,
+        "adjusted_coverage": 0.751,
         "alpha": 0.1,
         "margin": 0.2
       },
       "premium": {
         "weekly_baseline": 1374,
-        "expected_loss": 684.25,
-        "weekly_premium": 821.1
+        "expected_loss": 7.58,
+        "weekly_premium": 68.7,
+        "annual_premium": 3572.4,
+        "coverage_tier": "pro",
+        "loading_factor": 9.5
       },
       "trust_profile": {
         "trust_score": 0.93,
@@ -9784,6 +10852,10 @@
         "participation_score_so_far": 0.94,
         "pre_disruption_confirmed": true,
         "earnings_before_disruption": 0
+      },
+      "auth": {
+        "username": "WK-150",
+        "password": "vijay@123"
       }
     }
   ],
