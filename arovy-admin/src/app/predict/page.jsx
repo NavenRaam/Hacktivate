@@ -102,7 +102,7 @@ export default function PredictivesPage() {
           </div>
           <MiniBar value={h.score} max={1} color={healthColor}/>
         </div>
-        <MetricCard label="Approval Rate"   value={`92%`}  sub="of all claims processed" accent="#23D18B" icon={Shield} trend={0.02}/>
+        <MetricCard label="Approval Rate"   value={`75%`}  sub="of all claims processed" accent="#23D18B" icon={Shield} trend={0.02}/>
         <MetricCard label="Fraud Rate"      value={`17%`}     sub="blocked or suspicious"   accent={h.fraudRate>0.2?'#F5532D':'#F5A623'} icon={AlertTriangle} trend={-0.01}/>
         <MetricCard label="Avg Trust Score" value={`${Math.round(h.avgTrust*100)}%`}      sub="system-wide · live"      accent="#4F8EF7" icon={Shield} trend={tt.avgDeltaPerEvent}/>
       </div>

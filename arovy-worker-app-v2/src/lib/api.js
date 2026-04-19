@@ -1,7 +1,7 @@
 // api.js — centralised backend service
 // Change BACKEND_URL for deployment
 
-export const BACKEND_URL = 'http://172.31.98.247:3002'
+export const BACKEND_URL = 'http://172.18.171.28:3002'
 
 async function request(method, path, body = null) {
   const opts = {
