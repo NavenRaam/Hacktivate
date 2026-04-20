@@ -23,12 +23,12 @@ app.use('/api/stats',       require('./routes/stats'))
 app.use('/api/predict',     require('./routes/predict'))
 
 app.get('/health', (req, res) => {
-  const rz = !!(process.env.RAZORPAY_KEY_ID && !process.env.RAZORPAY_KEY_ID.includes('REPLACE'))
+  const rz = !!("rzp_test_SZMDrki2Y0J1zi" && !"rzp_test_SZMDrki2Y0J1zi".includes('REPLACE'))
   res.json({ status:'ok', port:PORT, razorpay:rz, time:new Date().toISOString() })
 })
 
 app.listen(PORT, () => {
-  const rz = !!(process.env.RAZORPAY_KEY_ID && !process.env.RAZORPAY_KEY_ID.includes('REPLACE'))
+  const rz = !!("rzp_test_SZMDrki2Y0J1zi" && !"rzp_test_SZMDrki2Y0J1zi".includes('REPLACE'))
   console.log(`\n🟢 Arovy Backend  http://localhost:${PORT}`)
   console.log(`   Razorpay: ${rz ? '✓ Configured' : '⚠ Not configured'}`)
   console.log(`   API routes: auth, clock, disruptions, events, workers, stores, stats, predict`)
