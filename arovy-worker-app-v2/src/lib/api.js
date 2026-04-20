@@ -3,7 +3,7 @@
 
 export const BACKEND_URL = 'http://172.18.171.28:3002'
 
-async function request(method, path, body = null) {cd 
+async function request(method, path, body = null) {
   const opts = {
     method,
     headers: { 'Content-Type': 'application/json' },
